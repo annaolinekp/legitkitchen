@@ -1,1 +1,32 @@
-// Specific CSS for your home-page
+#title {
+  align-items: center;
+  flex-direction: column;
+  background-color: #FFA783;
+  height: 214px;
+}
+
+#title h1 {
+  color: white;
+}
+
+#title p {
+  color: white;
+  font-size: 18px;
+}
+
+#call-to-action {
+  align-items: center;
+  margin-top: 3px;
+  background-color: #FFA783;
+  height: 56px;
+}
+
+#call-to-action h2 {
+  font-size: 24px;
+  padding-top: 8px;
+  color: white;
+}
+
+#map {
+  margin-top: 24px;
+}
