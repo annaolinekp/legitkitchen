@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
-  class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy]
-  before_action :find_current_user, only: [:update, :destroy]
 
   def show
+    @recipies = Recipe.where(user: current_user)
   end
 
   def new
@@ -37,10 +36,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :profile_picture, :profile_picture_url)
   end
-
-  def find_current_user
-    @user = current_user
-  end
-end
-
 end

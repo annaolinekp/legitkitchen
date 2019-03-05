@@ -6,6 +6,11 @@
 
 <h1>My recipies</h1>
 
-<% @user.recipes%>
+<% @recipies.each do |recipe|%>
+  <div>
+   <%= recipe.name %>
+  </div>
+<% end %>
+
 
 
