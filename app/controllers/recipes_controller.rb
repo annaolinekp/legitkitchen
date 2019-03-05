@@ -6,6 +6,8 @@ class RecipesController < ApplicationController
   def index
     if params[:search].present?
       @recipes = Recipe.search_by_name_and_description(params[:search])
+    elsif params[:dietary_requirements].present? || params[:category].present?
+      @recipes = Recipe.filter(params.slice(:category, :dietary_requirements))
     else
       @recipes = Recipe.all
     end
