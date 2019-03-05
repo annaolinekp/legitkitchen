@@ -9,10 +9,20 @@
         <% if current_user %>
           <% if current_user.id == recipe.user.id %>
             <%= link_to 'Delete recipe?', recipe_path(recipe), method: :delete, data: { confirm: "Are you sure?" }%>
-             <i class="fa fa-trash destroy_recipe"></i>
+             <li><%= link_to 'Create a recipe', new_recipe_path %></li>
           <% end %>
         <% end %>
       <% end %>
     </ul>
   </div>
 </div>
+
+
+
+<%= form_tag(recipes_path, method: :get) do %>
+
+  <%= select_tag(:category, options_for_select([['Main', 'Main'], ['Starter', 'Starter'], ['Dessert', 'Dessert'], ['Drink', 'Drink']]))%>
+
+  <%= button_tag("Add", type: "submit") %>
+<% end %>
+

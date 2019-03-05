@@ -7,6 +7,7 @@ class Recipe < ApplicationRecord
   validates :cooktime, presence: true
   validates :preptime, presence: true
   # validates :picture_url, presence: true
+  # validates :dietary_requirements, presence: true
   include Filterable
   scope :dietary_requirements, -> (dietary_requirements) { where dietary_requirements: dietary_requirements }
   scope :category, -> (category) { where category: category }
