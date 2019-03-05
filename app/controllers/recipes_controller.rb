@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :edit, :update, :destroy]
-  before_action :find_user, only: [:create, :update, :destroy]
+  # before_action :find_user, only: [:create, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
@@ -16,8 +16,9 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.create(recipe_params)
-    @recipe.save ? (redirect_to recipe_path(@recipe)) : (render 'new')
+    @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
+    @recipe.save! ? (redirect_to recipe_path(@recipe)) : (render 'new')
   end
 
   def edit
@@ -36,14 +37,14 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :cooktime, :preptime, :picture_url, :video_url, :category)
+    params.require(:recipe).permit(:name, :description, :cooktime, :preptime, :category)
   end
 
   def find_recipe
     @recipe = Recipe.find(params[:id])
   end
 
-  def find_user
-    @recipe.user = current_user
-  end
+  # def find_user
+  #   @recipe.user = current_user
+  # end
 end
