@@ -1,4 +1,4 @@
-<%= simple_form_for [@recipe, @quantity] do |f| %>
+<%= simple_form_for(@recipe) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -6,9 +6,6 @@
     <%= f.input :name, label: "Add Recipe name", placeholder: "e.g. Pizza Margherita" %>
   </div>
 
-  <div>
-    <%= f.input :quantity, label: "Add an amount" %>
-  </div>
   <div class="form-inputs">
     <%= f.input :description, label: "Add Method", placeholder: "e.g. Step 1: To make the dough, combine the flour, baking powder and salt in a bowl..." %>
   </div>
@@ -24,6 +21,12 @@
   <div class="form-inputs">
     <%= f.input :category, as: :select, collection: [ "Appetiser", "Main", "Drinks", "Dessert"] %>
   </div>
+
+  <div class="form-inputs">
+    <%= f.input :dietary_requirement, as: :select, collection: [ "Vegetarian", "Vegan", "Lactose Intolerant",
+      "Gluten Free" "Halal"] %>
+  </div>
+
 
   <div class="form-actions">
     <%= f.button :submit, label: "Submit Form" %>
