@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 2019_03_05_145349) do
     t.string "video_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "dietary_requirement"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
