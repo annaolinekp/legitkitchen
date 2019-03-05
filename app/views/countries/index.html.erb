@@ -1,6 +1,6 @@
 <h1>Countries</h1>
 <div>
   <% @countries.each do |country| %>
-    <ul> <%= country.name %> </ul>
+    <ul> <%= link_to country.name, country_path(country) %> </ul>
   <% end %>
 </div>
