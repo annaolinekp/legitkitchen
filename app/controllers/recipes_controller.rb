@@ -8,6 +8,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @user = current_user
     @comments = @recipe.comments
   end
 
