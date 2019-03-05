@@ -7,4 +7,11 @@ class Recipe < ApplicationRecord
   validates :cooktime, presence: true
   validates :preptime, presence: true
   # validates :picture_url, presence: true
+
+  include PgSearch
+  pg_search_scope :search_by_name_and_description,
+    against: [:name, :description],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
