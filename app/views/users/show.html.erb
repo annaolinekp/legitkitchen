@@ -1,1 +1,16 @@
-<h1>User homepage</h1>
+<h1>User Profile</h1>
+
+<h3>User description</h3>
+
+<%= link_to "Create a new Recipe", new_recipe_path  %>
+
+<h1>My recipies</h1>
+
+<% @recipies.each do |recipe|%>
+  <div>
+   <%= recipe.name %>
+  </div>
+<% end %>
+
+
+
