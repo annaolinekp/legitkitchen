@@ -5,5 +5,5 @@ class Recipe < ApplicationRecord
   validates :category, presence: true
   validates :cooktime, presence: true
   validates :preptime, presence: true
-  validates :picture_url, presence: true
+  # validates :picture_url, presence: true
 end
