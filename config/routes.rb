@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   resources :quantities, only: :destroy
   resources :likes, only: [:create, :destroy]
   resources :comments, only: :destroy
-  resources :countries, only: :index
+  resources :countries, only: [:index, :show]
 end
 
