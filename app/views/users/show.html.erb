@@ -4,13 +4,13 @@
 
 <%= link_to "Create a new Recipe", new_recipe_path  %>
 
-<h1>My recipies</h1>
+<h1>My recipes</h1>
 
-<% @recipies.each do |recipe|%>
+
+<h3>Updated Recipes</h3>
+<% @recipes.each do |recipe|%>
   <div>
    <%= recipe.name %>
   </div>
 <% end %>
-
-
 
