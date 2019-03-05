@@ -1,5 +1,6 @@
 .navbar {
-  height: 72px;
+  overflow: hidden;
+  height: 64px;
   justify-content: space-between;
   background: #FFA783;
 }
@@ -28,4 +29,19 @@
     &:hover {
       color: $light;
     }
+}
+
+.search-bar {
+  background-color: #FFA783;
+  border-radius: 8px;
+}
+
+button {
+  background-color: #FFA783;
+  border-style: none;
+}
+
+.search-button {
+  background-color: #FFA783;
+  -webkit-appearance: none;
 }
