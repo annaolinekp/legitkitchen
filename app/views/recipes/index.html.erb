@@ -1,16 +1,18 @@
 <div class="main-container">
   <h1>Recipes</h1>
-  <ul>
-    <% @recipes.each do |recipe| %>
-      <li><%= link_to recipe.name, recipe_path(recipe) %></li>
-      <li><%= recipe.description%></li>
-      <li><%= recipe.category%></li>
-      <li><%= recipe.cooktime%></li>
-      <li><%= recipe.preptime%></li>
-      <li><%= recipe.picture_url%></li>
-      <li><%= recipe.video_url%></li>
-    <% end %>
-  </ul>
+  <div class="card-container">
+    <ul>
+      <% @recipes.each do |recipe| %>
+        <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+        <li><%= recipe.description%></li>
+        <li><%= recipe.picture_url%></li>
+        <% if current_user %>
+          <% if current_user.id == recipe.user.id %>
+            <%= link_to 'Delete recipe?', recipe_path(recipe), method: :delete, data: { confirm: "Are you sure?" }%>
+             <i class="fa fa-trash destroy_recipe"></i>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
 </div>
-
-

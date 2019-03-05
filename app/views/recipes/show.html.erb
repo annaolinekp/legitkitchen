@@ -1,4 +1,19 @@
 <div class="main-container">
   <li><%= @recipe.name%></li>
   <li><%= @recipe.description%></li>
+  <li><%= @recipe.category%></li>
+  <li><%= @recipe.cooktime%></li>
+  <li><%= @recipe.preptime%></li>
+  <li><%= @recipe.picture_url%></li>
+  <li><%= @recipe.video_url%></li>
+  <li><%= @recipe.video_url%></li>
 </div>
+
+<div>
+  <p>Comments</p>
+    <% @comments.each do |comment| %>
+      <p><i class="fas fa-paw p-2"></i><%= comment.content %></p>
+    <% end %>
+</div>
+
+<li><%= link_to 'Go back to all recipes', recipes_path %></li>
