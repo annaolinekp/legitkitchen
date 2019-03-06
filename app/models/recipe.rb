@@ -1,6 +1,11 @@
 class Recipe < ApplicationRecord
   belongs_to :user
+
+  has_many :comments
+  has_many :quantities, dependent: :destroy
+
   has_many :comments, dependent: :destroy
+
   validates :name, presence: true
   validates :description, presence: true
   validates :category, presence: true
