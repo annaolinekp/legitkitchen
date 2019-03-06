@@ -1,14 +1,15 @@
 class CommentsController < ApplicationController
-  before_action :find_recipe, only: [:create, :destroy]
-  before_action :find_current_user, only: [:create, :destroy]
+  before_action :find_recipe, only: [:new, :create, :destroy]
+  before_action :find_current_user, only: [:destroy]
   def new
-    @recipe = Recipe.find(params[:recipe_id])
     @comment = Comment.new
   end
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.save ? (redirect_to recipe_path(@comment.recipe)) : (render 'new')
+    @comment.recipe = @recipe
+    @comment.user = current_user
+    @comment.save ? (redirect_to recipe_path(@recipe)) : (render 'new')
   end
 
   def destroy
@@ -27,6 +28,6 @@ class CommentsController < ApplicationController
   end
 
   def find_recipe
-    @comment.recipe = Recipe.find(params[:recipe_id])
+    @recipe = Recipe.find(params[:recipe_id])
   end
 end
