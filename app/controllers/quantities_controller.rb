@@ -3,4 +3,21 @@ class QuantitiesController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @quantity = Quantity.new
   end
+
+  def create
+    @recipe = Recipe.find(params[:recipe_id])
+    @quantity = Quantity.new(quantity_params)
+    @quantity.recipe = @recipe
+    if @quantity.save
+      redirect_to recipe_path(@quantity.recipe)
+    else
+      render 'new'
+    end
+  end
+
+  private
+
+  def quantity_params
+    params.require(:quantity).permit(:description, :ingredient_id)
+  end
 end
