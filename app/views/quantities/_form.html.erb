@@ -1,0 +1,5 @@
+<%= simple_form_for [@recipe, @quantity] do |f| %>
+<%= f.input :ingredient %>
+<%= f.input :description, label: "Add an amount" %>
+<%= f.submit "Create ingredient"%>
+<% end %>
