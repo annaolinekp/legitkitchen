@@ -9,7 +9,7 @@
       <% @recipes.each do |recipe| %>
         <li><%= link_to recipe.name, recipe_path(recipe) %></li>
         <li><%= recipe.description%></li>
-        <li><%= recipe.picture_url%></li>
+        <%= cl_image_tag @recipe.picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
         <% if current_user %>
           <% if current_user.id == recipe.user.id %>
             <%= link_to 'Delete recipe?', recipe_path(recipe), method: :delete, data: { confirm: "Are you sure?" }%>
