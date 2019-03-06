@@ -10,6 +10,7 @@ require 'faker'
 Recipe.destroy_all
 User.destroy_all
 Country.destroy_all
+Ingredient.destroy_all
 
 dietary_requirements = ["Appetiser", "Main", "Drinks", "Dessert"]
 categories = ["Vegetarian", "Vegan", "Lactose Intolerant","Gluten Free", "Halal"]
