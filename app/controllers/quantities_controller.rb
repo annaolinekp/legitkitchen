@@ -9,7 +9,6 @@ class QuantitiesController < ApplicationController
     @quantity = Quantity.new(quantity_params)
     @quantity.recipe = @recipe
     if @quantity.save
-      redirect_to recipe_path(@quantity.recipe)
     else
       render 'new'
     end
