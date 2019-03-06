@@ -1,23 +1,29 @@
 <div class="main-container">
-<%= link_to 'Starter', recipes_path(category: 'Starter')  %>
-<%= link_to 'Main', recipes_path(category: 'Main')  %>
-<%= link_to 'Dessert', recipes_path(category: 'Dessert')  %>
-<%= link_to 'Drink', recipes_path(category: 'Drink')  %>
-  <h1>Recipes</h1>
+  <div class="filters">
+    <%= link_to 'Starter', recipes_path(category: 'Starter')  %>
+    <%= link_to 'Main', recipes_path(category: 'Main')  %>
+    <%= link_to 'Dessert', recipes_path(category: 'Dessert')  %>
+    <%= link_to 'Drink', recipes_path(category: 'Drink')  %>
+  </div>
+  <div class="title">
+    <h1>Recipes</h1>
+  </div>
   <div class="card-container">
-    <ul>
-      <% @recipes.each do |recipe| %>
-        <li><%= link_to recipe.name, recipe_path(recipe) %></li>
-        <li><%= recipe.description%></li>
+    <% @recipes.each do |recipe| %>
+      <div class="recipe-card">
         <%= cl_image_tag recipe.picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
+        <div class="info-card">
+          <h2><%= link_to recipe.name, recipe_path(recipe) %></h2>
+          <p><%= recipe.description%></p>
+        </div>
         <% if current_user %>
           <% if current_user.id == recipe.user.id %>
             <%= link_to 'Delete recipe?', recipe_path(recipe), method: :delete, data: { confirm: "Are you sure?" }%>
-             <li><%= link_to 'Create a recipe', new_recipe_path %></li>
+            <p><%= link_to 'Create a recipe', new_recipe_path %></p>
           <% end %>
         <% end %>
-      <% end %>
-    </ul>
+      </div>
+    <% end %>
   </div>
 </div>
 
