@@ -17,7 +17,8 @@ puts 'Creating 10 fake users...'
     first_name: Faker::Name.unique.first_name,
     last_name: Faker::Name.unique.last_name,
     email: Faker::Internet.unique.email,
-    password: "123456"
+    password: "123456",
+    # profile_picture_url: "res.cloudinary.com/do6brpyuo/image/upload/v1551872540/lism2u71mmxu0ichi4bw.jpg"
 
   )
   user.save!
@@ -29,7 +30,7 @@ puts 'Creating 10 fake users...'
       category: Faker::Nation.nationality,
       cooktime: "15min",
       preptime: "30min",
-      picture_url: "none",
+      # picture_url: "res.cloudinary.com/do6brpyuo/image/upload/v1551872540/lism2u71mmxu0ichi4bw.jpg",
       user: user
 
     )

@@ -1,4 +1,7 @@
 <h1>User Profile</h1>
+<div>
+  <%= cl_image_tag @user.profile_picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
+</div>
 
 <h3>User description</h3>
 
@@ -13,4 +16,8 @@
    <%= recipe.name %>
   </div>
 <% end %>
+
+<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+
+
 

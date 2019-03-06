@@ -1,4 +1,8 @@
 <div class="main-container">
+<%= link_to 'Starter', recipes_path(category: 'Starter')  %>
+<%= link_to 'Main', recipes_path(category: 'Main')  %>
+<%= link_to 'Dessert', recipes_path(category: 'Dessert')  %>
+<%= link_to 'Drink', recipes_path(category: 'Drink')  %>
   <h1>Recipes</h1>
   <div class="card-container">
     <ul>
@@ -22,7 +26,9 @@
 <%= form_tag(recipes_path, method: :get) do %>
 
   <%= select_tag(:category, options_for_select([['Main', 'Main'], ['Starter', 'Starter'], ['Dessert', 'Dessert'], ['Drink', 'Drink']]))%>
-
+  <%= select_tag(:dietary_requirements, options_for_select([['Vegetarian', 'Vegetarian'], ['Vegan', 'Vegan'], ['Halal', 'Halal'], ['Gluten Free', 'Gluten Free'], ['Lactose Intolerant', 'Lactose Intolerant']]))%>
   <%= button_tag("Add", type: "submit") %>
 <% end %>
+
+
 

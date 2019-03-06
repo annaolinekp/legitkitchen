@@ -7,6 +7,8 @@ class Recipe < ApplicationRecord
   validates :cooktime, presence: true
   validates :preptime, presence: true
   # validates :picture_url, presence: true
+
+  mount_uploader :picture_url, PhotoUploader
   # validates :dietary_requirements, presence: true
   include Filterable
   scope :dietary_requirements, -> (dietary_requirements) { where dietary_requirements: dietary_requirements }
@@ -18,4 +20,5 @@ class Recipe < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
 end
