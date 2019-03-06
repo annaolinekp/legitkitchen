@@ -15,6 +15,13 @@ class QuantitiesController < ApplicationController
     end
   end
 
+  def destroy
+    @quantity = Quantity.find(params[:id])
+    @quantity.destroy
+    redirect_to recipe_path(@quantity.recipe)
+
+  end
+
   private
 
   def quantity_params
