@@ -23,3 +23,9 @@ $border-radius-large: 2px;
 $border-radius-small: 2px;
 
 // Override other variables below!
+
+.alert {
+  position: fixed !important;
+  bottom: 16px;
+  right: 16px;
+}
