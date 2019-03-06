@@ -10,9 +10,13 @@ require 'faker'
 Recipe.destroy_all
 User.destroy_all
 Country.destroy_all
+Ingredient.destroy_all
+
 dietary_requirements = ["Appetiser", "Main", "Drinks", "Dessert"]
 categories = ["Vegetarian", "Vegan", "Lactose Intolerant","Gluten Free", "Halal"]
+
 puts 'Creating 10 fake users...'
+
 10.times do
   user = User.new(
     first_name: Faker::Name.unique.first_name,
@@ -24,18 +28,18 @@ puts 'Creating 10 fake users...'
   )
   user.save!
 
+puts 'Creating 2 fake recipes...'
   2.times do
     recipe = Recipe.new(
       name: Faker::Food.unique.dish,
       description: Faker::Food.description,
-      category: Faker::Nation.nationality,
+      # category: Faker::Nation.nationality,
       cooktime: "15min",
       preptime: "30min",
       # picture_url: "res.cloudinary.com/do6brpyuo/image/upload/v1551872540/lism2u71mmxu0ichi4bw.jpg",
       user: user,
-      dietary_requirement: dietary_requirements.sample,
+      dietary_requirements: dietary_requirements.sample,
       category: categories.sample
-
 
     )
     recipe.save!
@@ -50,4 +54,14 @@ puts 'Seeding countries...'
   country.save!
 end
 
+puts 'Creating 30 fake ingredients...'
+    30.times do
+  ingredient = Ingredient.new(
+    name: Faker::Food.ingredient
+  )
+  ingredient.save!
+end
+
 puts "Finished!"
+
+
