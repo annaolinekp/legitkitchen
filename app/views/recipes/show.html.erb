@@ -1,5 +1,13 @@
 <div class="main-container">
   <li><%= @recipe.name%></li>
+
+  <% @recipe.quantities.each do |quantity|%>
+  <%= quantity.description%>
+  <%= quantity.ingredient.name %>
+  <% end %>
+
+
+
   <div>
     <%= cl_image_tag @recipe.picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
   </div>
