@@ -5,7 +5,24 @@
     <%= f.input :email,
                 required: false,
                 autofocus: true,
-                input_html: { autocomplete: "email" } %>
+                input_html: { autocomplete: "email" },
+                placeholder: "example@example.com"%>
+    <%= f.input :first_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "first name" },
+                placeholder: "Mary"%>
+    <%= f.input :last_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "last name" },
+                placeholder: "Poppins"%>
+    <%= f.input :profile_picture_url, as: :file,
+                require: true,
+                autofocus: true,
+                input_html: { autocomplete: "profile picture" },
+                placeholder: "Upload your photo"%>
+    <%= f.input :profile_picture_url_cache, as: :hidden %>
     <%= f.input :password,
                 required: false,
                 input_html: { autocomplete: "current-password" } %>
