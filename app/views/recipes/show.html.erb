@@ -3,20 +3,34 @@
   <div>
     <%= cl_image_tag @recipe.picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
   </div>
-  <li><%= @recipe.description%></li>
-  <li><%= @recipe.category%></li>
-  <li><%= @recipe.cooktime%></li>
-  <li><%= @recipe.preptime%></li>
+  <li><%= @recipe.description %></li>
+  <li><%= @recipe.category %></li>
+  <li><%= @recipe.cooktime %></li>
+  <li><%= @recipe.preptime %></li>
   <!-- <li><%= @recipe.picture_url%></li> -->
   <!-- <li><%= @recipe.video_url%></li> -->
   <li><%= @recipe.dietary_requirements%></li>
 </div>
 
 <div>
-  <p>Comments</p>
-    <% @comments.each do |comment| %>
-      <p><i class="fas fa-paw p-2"></i><%= comment.content %></p>
+  <p>
+    <%= pluralize @recipe.comments.size, "comment" %>
+    <% @recipe.comments.each do |comment| %>
+      <p> <%= comment.content %> </p>
     <% end %>
+  </p>
+  <div id="reviews">
+  <% if @recipe.comments.blank? %>
+    Be the first to leave a comment for <%= @recipe.name %>
+  <% else %>
+    <% @recipe.comments.each do |review| %>
+      <%= render 'comments/show', comment: @comment %>
+    <% end %>
+  <% end %>
+  </div>
+  <div>
+    <%= render 'comments/form', recipe: @recipe, comment: @comment %>
+  </div>
 </div>
 
 <li><%= link_to 'Go back to all recipes', recipes_path %></li>
