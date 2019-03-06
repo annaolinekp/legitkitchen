@@ -10,7 +10,8 @@ require 'faker'
 Recipe.destroy_all
 User.destroy_all
 Country.destroy_all
-
+dietary_requirements = ["Appetiser", "Main", "Drinks", "Dessert"]
+categories = ["Vegetarian", "Vegan", "Lactose Intolerant","Gluten Free", "Halal"]
 puts 'Creating 10 fake users...'
 10.times do
   user = User.new(
@@ -31,7 +32,10 @@ puts 'Creating 10 fake users...'
       cooktime: "15min",
       preptime: "30min",
       # picture_url: "res.cloudinary.com/do6brpyuo/image/upload/v1551872540/lism2u71mmxu0ichi4bw.jpg",
-      user: user
+      user: user,
+      dietary_requirement: dietary_requirements.sample,
+      category: categories.sample
+
 
     )
     recipe.save!
