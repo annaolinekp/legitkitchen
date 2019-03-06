@@ -1,2 +1,25 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.title {
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.filters {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.info-card {
+  justify-content: left;
+}
+
+.recipe-card img {
+  height: 50%;
+  width: 100%;
+  object-fit: cover;
+}
