@@ -19,7 +19,6 @@ class QuantitiesController < ApplicationController
     @quantity = Quantity.find(params[:id])
     @quantity.destroy
     redirect_to recipe_path(@quantity.recipe)
-
   end
 
   private

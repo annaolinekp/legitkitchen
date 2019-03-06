@@ -14,13 +14,12 @@
     </div>
 
     <div class="form-inputs">
-      <%= f.input :preptime%>
+      <%= f.input :preptime, placeholder: "e.g. 20min"%>
     </div>
 
     <div class="form-inputs">
-      <%= f.input :cooktime %>
+      <%= f.input :cooktime, placeholder: "e.g. 15min" %>
     </div>
-
 
     <div class="form-inputs">
       <%= f.input :category, as: :select, collection: [ "Appetiser", "Main", "Drinks", "Dessert"] %>

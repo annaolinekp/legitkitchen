@@ -1,7 +1,3 @@
 <h1>Create Ingredients</h1>
 
-<%= simple_form_for [@recipe, @quantity] do |f| %>
-<%= f.association :ingredient %>
-<%= f.input :description, label: "Add an amount" %>
-<%= f.submit "Create ingredient"%>
-<% end %>
+<%= render 'form' %>
