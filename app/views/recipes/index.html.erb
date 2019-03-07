@@ -18,7 +18,7 @@
       <% @recipes.each do |recipe| %>
         <div class="recipe-card">
           <%#= cl_image_tag recipe.picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
-          <%= image_tag 'https://images.unsplash.com/photo-1475090169767-40ed8d18f67d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80' %>
+          <%= image_tag 'https://images.unsplash.com/photo-1527976746453-f363eac4d889?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60' %>
           <div class="info-card">
             <h2><%= link_to recipe.name, recipe_path(recipe) %></h2>
             <p><%= recipe.description%></p>
