@@ -1,12 +1,20 @@
 <div class="main-container">
   <li><%= @recipe.name%></li>
 
-  <div id="ingredient">
-    <%= render "quantities/form", quantity: @quantity  %>
+  <% if @user = current_user %>
+    <% if @recipe.user == current_user%>
+      <div id="ingredient">
+        <%= render "quantities/form", quantity: @quantity  %>
+      </div>
+     <% end %>
+  <% end %>
+  <div>
     <% @recipe.quantities.each do |quantity|%>
       <%= quantity.description %>
       <%= quantity.ingredient.name %>
-      <%= link_to "delete", quantity_path(quantity), method: :delete %>
+      <% if @recipe.user == current_user%>
+        <%= link_to "delete", quantity_path(quantity), method: :delete %>
+        <% end %>
     <% end %>
   </div>
 
