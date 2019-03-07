@@ -11,16 +11,18 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   flex-grow: 1;
+  grid-gap:70px;
   margin-left: 50px;
 }
 
 .recipe-card {
-  width: 300px;
+  position: relative;
+  width: 100%;
   height: 350px;
-  margin: 20px;
+  /* margin: 20px; */
   box-shadow: 4px 2px 41px -9px rgba(171,168,171,0.86);
   border-radius: 4px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 // .main-container-r-index {
