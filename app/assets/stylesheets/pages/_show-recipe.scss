@@ -1,0 +1,17 @@
+.main-recipe-container, .recipe-info-container {
+  display: flex;
+  justify-content: center;
+}
+
+.container-left {
+  margin: 60px;
+}
+.recipe-info-container {
+  margin: 60px;
+
+}
+
+.ingredient-main-container {
+  background: $main-color;
+  opacity: 0.5;
+}
