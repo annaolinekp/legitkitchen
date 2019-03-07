@@ -39,11 +39,12 @@ class RecipesController < ApplicationController
       end
       quantity_array.each do |quantity|
         if quantity.save
-          redirect_to recipe_path(@recipe)
+          next
         else
-          render 'new'
+          render 'new' and return
         end
       end
+      redirect_to recipe_path(@recipe)
     else
       render 'new'
     end
@@ -53,6 +54,7 @@ class RecipesController < ApplicationController
   end
 
   def update
+    raise
     @recipe.update(recipe_params)
     redirect_to recipe_path(@recipe)
   end
