@@ -7,11 +7,22 @@
   margin: 60px;
 }
 .recipe-info-container {
-  margin: 60px;
+  margin-top: 60px;
+  flex-direction: column;
+  // margin-left:
 
 }
 
 .ingredient-main-container {
   background: $main-color;
   opacity: 0.5;
+  width: 350px;
+}
+
+.ingredient-container, .time-info {
+  margin: 0 20px;
+}
+
+.method {
+  margin: 0 20px;
 }
