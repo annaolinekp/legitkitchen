@@ -26,15 +26,3 @@
     <% end %>
   </div>
 </div>
-
-
-
-<%= form_tag(recipes_path, method: :get) do %>
-
-  <%= select_tag(:category, options_for_select([['Main', 'Main'], ['Starter', 'Starter'], ['Dessert', 'Dessert'], ['Drink', 'Drink']]))%>
-  <%= select_tag(:dietary_requirements, options_for_select([['Vegetarian', 'Vegetarian'], ['Vegan', 'Vegan'], ['Halal', 'Halal'], ['Gluten Free', 'Gluten Free'], ['Lactose Intolerant', 'Lactose Intolerant']]))%>
-  <%= button_tag("Add", type: "submit") %>
-<% end %>
-
-
-
