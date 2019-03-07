@@ -26,21 +26,23 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
-    if @recipe.save!
+    if @recipe.save
       ingredients_hash = ingredients_params
       amounts_hash = amounts_params
-      quantity_array_hashes = []
+      quantity_array = []
       ingredients_hash.each do |key, value|
         identity_num = key[-1, 1]
         quantity_hash = { ingredient_id: value,
                           description: amounts_hash["amount#{identity_num}"],
                           recipe_id: @recipe.id }
-        quantity_array_hashes.push(quantity_hash)
+        quantity_array.push(Quantity.new(quantity_hash))
       end
-      if Quantity.create!(quantity_array_hashes)
-        redirect_to recipe_path(@recipe)
-      else
-        render 'new'
+      quantity_array.each do |quantity|
+        if quantity.save
+          redirect_to recipe_path(@recipe)
+        else
+          render 'new'
+        end
       end
     else
       render 'new'

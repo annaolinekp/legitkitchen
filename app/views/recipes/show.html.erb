@@ -1,8 +1,47 @@
 <div class="main-container">
-  <p><%= @recipe.name %></p>
-  <% @recipe.quantities.each do |quantity|%>
-    <p><%= quantity.description %></p>
-    <p><%= quantity.ingredient.name %></p>
-  <% end %>
+  <div>
+
+    <% @recipe.quantities.each do |quantity|%>
+      <%= quantity.description %>
+      <%= quantity.ingredient.name %>
+      <% if @recipe.user == current_user%>
+        <%= link_to "delete", quantity_path(quantity), method: :delete %>
+        <% end %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= cl_image_tag @recipe.picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
+  </div>
+  <li><%= @recipe.description %></li>
+  <li><%= @recipe.category %></li>
+  <li><%= @recipe.cooktime %></li>
+  <li><%= @recipe.preptime %></li>
+  <!-- <li><%= @recipe.picture_url%></li> -->
+  <!-- <li><%= @recipe.video_url%></li> -->
+  <li><%= @recipe.dietary_requirements%></li>
+
+  <div>
+    <p>
+      <p id="counter"> <%= pluralize @recipe.comments.size, "comment" %> </p>
+      <div id="comments">
+          <% @recipe.comments.each do |comment| %>
+            <li id="comment-<%= comment.id %>">
+              <p> <%= comment.content %> </p>
+              <p> <%= link_to "Delete", comment_path(comment), method: :delete, remote: true %> </p>
+            </li>
+          <% end %>
+      </div>
+    </p>
+    <div>
+      <% if @recipe.comments.empty? %>
+        <p>Be the first to leave a comment for <%= @recipe.name %></p>
+      <% end %>
+    </div>
+    <div>
+      <%= render 'comments/form', recipe: @recipe, comment: @comment %>
+    </div>
+  </div>
+
+  <li><%= link_to 'Go back to all recipes', recipes_path %></li>
 </div>
-<li><%= link_to 'Go back to all recipes', recipes_path %></li>
