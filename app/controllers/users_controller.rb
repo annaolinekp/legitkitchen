@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy]
 
   def show
+    @saved_recipes = SavedRecipe.where(user: current_user)
     @recipes = Recipe.where(user: current_user)
   end
 
