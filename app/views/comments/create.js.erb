@@ -1,0 +1,22 @@
+function refreshForm(innerHTML) {
+  const newCommentForm = document.getElementById('new_comment');
+  newCommentForm.innerHTML = innerHTML;
+}
+
+function addComment(commentHTML) {
+  const comments = document.getElementById('comments');
+  comments.insertAdjacentHTML('beforeend', commentHTML);
+}
+
+function updateCounter(commentHTML) {
+  const counter = document.getElementById('counter');
+  counter.innerHTML = commentHTML;
+}
+
+<% if @comment.errors.any? %>
+  refreshForm("<%= j render 'form', recipe: @recipe, comment: @comment %>");
+<% else %>
+  addComment("<%= j render 'show', comment: @comment %>");
+  refreshForm("<%= j render 'comments/form', recipe: @recipe, comment: Comment.new %>");
+  updateCounter('<%= j render "comments/counter", recipe: @recipe %>')
+<% end %>

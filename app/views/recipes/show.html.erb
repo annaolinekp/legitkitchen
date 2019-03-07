@@ -28,27 +28,28 @@
   <!-- <li><%= @recipe.picture_url%></li> -->
   <!-- <li><%= @recipe.video_url%></li> -->
   <li><%= @recipe.dietary_requirements%></li>
-</div>
 
-<div>
-  <p>
-    <%= pluralize @recipe.comments.size, "comment" %>
-    <% @recipe.comments.each do |comment| %>
-      <p> <%= comment.content %> </p>
-    <% end %>
-  </p>
-  <div id="reviews">
-    <% if @recipe.comments.blank? %>
-      Be the first to leave a comment for <%= @recipe.name %>
-    <% else %>
-      <% @recipe.comments.each do |review| %>
-        <%= render 'comments/show', comment: @comment %>
-      <% end %>
-    <% end %>
-  </div>
   <div>
-    <%= render 'comments/form', recipe: @recipe, comment: @comment %>
+    <p>
+      <p id="counter"> <%= pluralize @recipe.comments.size, "comment" %> </p>
+      <div id="comments">
+          <% @recipe.comments.each do |comment| %>
+            <li id="comment-<%= comment.id %>">
+              <p> <%= comment.content %> </p>
+              <p> <%= link_to "Delete", comment_path(comment), method: :delete, remote: true %> </p>
+            </li>
+          <% end %>
+      </div>
+    </p>
+    <div>
+      <% if @recipe.comments.empty? %>
+        <p>Be the first to leave a comment for <%= @recipe.name %></p>
+      <% end %>
+    </div>
+    <div>
+      <%= render 'comments/form', recipe: @recipe, comment: @comment %>
+    </div>
   </div>
-</div>
 
-<li><%= link_to 'Go back to all recipes', recipes_path %></li>
+  <li><%= link_to 'Go back to all recipes', recipes_path %></li>
+</div>
