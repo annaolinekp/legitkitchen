@@ -31,41 +31,44 @@
 
 
   <div class="recipe-info-container">
+    <div class="d-flex">
+      <div class="ingredient-main-container">
 
-    <div class="ingredient-main-container">
+        <div class="ingredient-container">
+          <% @recipe.quantities.each do |quantity|%>
+            <div class="ingredient-amount">
+              <%= quantity.description %>
+            </div>
+            <div class="ingredient-type">
+              <%= quantity.ingredient.name %>
+            </div>
+            <% if @recipe.user == current_user%>
+              <%= link_to "delete", quantity_path(quantity), method: :delete, class: "link" %>
+              <% end %>
+          <% end %>
+        </div>
 
-      <div class="ingredient-container">
-        <% @recipe.quantities.each do |quantity|%>
-          <div class="ingredient-amount">
-            <%= quantity.description %>
-          </div>
-          <div class="ingredient-type">
-            <%= quantity.ingredient.name %>
-          </div>
-          <% if @recipe.user == current_user%>
-            <%= link_to "delete", quantity_path(quantity), method: :delete, class: "link" %>
-            <% end %>
-        <% end %>
+        <div class="time-info">
+          <p>
+            <%= @recipe.cooktime %>
+          </p>
+          <p>
+           <%= @recipe.preptime %>
+          </p>
+          <p>
+            <%= @recipe.category %>
+          </p>
+          <p>
+            <%= @recipe.dietary_requirements%>
+          </p>
+        </div>
+
       </div>
 
-      <div class="time-info">
-        <p>
-          <%= @recipe.cooktime %>
-        </p>
-        <p>
-         <%= @recipe.preptime %>
-        </p>
-        <p>
-          <%= @recipe.category %>
-        </p>
-        <p>
-          <%= @recipe.dietary_requirements%>
-        </p>
+      <div class="method">
+        <p><%= @recipe.description %></p>
       </div>
-
     </div>
-
-    <p><%= @recipe.description %></p>
 
     <%= link_to 'Go back to all recipes', recipes_path %>
 
