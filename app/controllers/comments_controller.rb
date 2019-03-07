@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
-  before_action :find_recipe, only: [:new, :create, :destroy]
-  before_action :find_current_user, only: [:destroy]
+  before_action :find_recipe, only: [:new, :create]
+  # before_action :find_current_user, only: [:destroy]
+
   def new
     @comment = Comment.new
   end
@@ -9,12 +10,26 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.recipe = @recipe
     @comment.user = current_user
-    @comment.save ? (redirect_to recipe_path(@recipe)) : (render 'new')
+    if @comment.save
+      respond_to do |format|
+        format.html { redirect_to recipe_path(@recipe) }
+        format.js  # <-- will render `app/views/comments/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { render 'recipes/show' }
+        format.js  # <-- idem
+      end
+    end
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to recipe_path(@recipe)
+    respond_to do |format|
+      format.html { render "recipes/index" }
+      format.js  # <-- idem
+    end
   end
 
   private

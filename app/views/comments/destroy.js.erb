@@ -1,0 +1,9 @@
+var commentToDestroy = document.getElementById("comment-<%= @comment.id %>");
+commentToDestroy.remove();
+
+function updateCounter(commentHTML) {
+  const counter = document.getElementById('counter');
+  counter.innerHTML = commentHTML;
+}
+
+updateCounter('<%= j render "comments/counter", recipe: @comment.recipe %>')
