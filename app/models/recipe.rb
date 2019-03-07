@@ -1,6 +1,7 @@
 class Recipe < ApplicationRecord
   belongs_to :user
-
+  attr_accessor :amounts
+  attr_accessor :ingredients
   has_many :comments
   has_many :quantities, dependent: :destroy
 

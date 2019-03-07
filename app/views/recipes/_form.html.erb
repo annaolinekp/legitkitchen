@@ -1,46 +1,58 @@
-<div class="main-container">
-  <h1> Upload your recipe </h1>
+<h1> Upload your recipe </h1>
 
-  <%= simple_form_for(@recipe) do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<%= simple_form_for(@recipe) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-    <div class="form-inputs">
-      <%= f.input :name, label: "Add Recipe name", placeholder: "e.g. Pizza Margherita" %>
-    </div>
+  <div class="form-inputs">
+    <%= f.input :name, label: "Add Recipe name", placeholder: "e.g. Pizza Margherita" %>
+  </div>
 
-    <div class="form-inputs">
-      <%= f.input :description, label: "Add Method", placeholder: "e.g. Step 1: To make the dough, combine the flour, baking powder and salt in a bowl..." %>
-    </div>
+  <div class="form-inputs">
+    <%= f.input :description, label: "Add Method", placeholder: "e.g. Step 1: To make the dough, combine the flour, baking powder and salt in a bowl..." %>
+  </div>
 
-    <div class="form-inputs">
-      <%= f.input :preptime, placeholder: "e.g. 20min"%>
-    </div>
+  <div class="form-inputs">
+    <%= f.input :preptime, placeholder: "e.g. 20min"%>
+  </div>
 
-    <div class="form-inputs">
-      <%= f.input :cooktime, placeholder: "e.g. 15min" %>
-    </div>
+  <div class="form-inputs">
+    <%= f.input :cooktime, placeholder: "e.g. 15min" %>
+  </div>
 
-    <div class="form-inputs">
-      <%= f.input :category, as: :select, collection: [ "Appetiser", "Main", "Drinks", "Dessert"] %>
-    </div>
+  <div class="form-inputs">
+    <%= f.input :category, as: :select, collection: [ "Appetiser", "Main", "Drinks", "Dessert"] %>
+  </div>
 
-    <div class="form-inputs">
-      <%= f.input :dietary_requirements, as: :select, collection: [ "Vegetarian", "Vegan", "Lactose Intolerant",
-        "Gluten Free", "Halal"] %>
-    </div>
+  <div class="form-inputs">
+    <%= f.input :dietary_requirements, as: :select, collection: [ "Vegetarian", "Vegan", "Lactose Intolerant",
+      "Gluten Free", "Halal"] %>
+  </div>
 
-    <div class="form-inputs">
-      <%= f.input :picture_url, as: :file %>
-      <%= f.input :picture_url_cache, as: :hidden %>
-    </div>
+  <div class="form-inputs">
+    <%= f.input :picture_url, as: :file %>
+    <%= f.input :picture_url_cache, as: :hidden %>
+  </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, label: "Submit Form" %>
-    </div>
-  <% end %>
-</div>
+  <div class="form-inputs">
+    <%= f.simple_fields_for "ingredients" do |i| %>
+      <%= i.input "ingredient_id0", collection: Ingredient.all, label: "Ingredient"  %>
+    <% end %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.simple_fields_for "amounts" do |i| %>
+      <%= i.input "amount0", label: "Add an amount" %>
+    <% end %>
+  </div>
+
+  <a id="new-ingredient-btn">Add new ingredient</a>
+
+  <div class="form-actions">
+    <%= f.button :submit, label: "Submit Form" %>
+  </div>
+<% end %>
 
 
-
+<%= javascript_pack_tag 'new-form-field' %>
 
