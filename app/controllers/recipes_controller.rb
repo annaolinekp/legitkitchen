@@ -1,6 +1,5 @@
 class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :edit, :update, :destroy]
-  # before_action :find_user, only: [:create, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
@@ -40,7 +39,8 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe.destroy
-    redirect_to recipes_path
+    @user = current_user
+    redirect_to user_path(@user)
   end
 
   private
@@ -52,8 +52,4 @@ class RecipesController < ApplicationController
   def find_recipe
     @recipe = Recipe.find(params[:id])
   end
-
-  # def find_user
-  #   @recipe.user = current_user
-  # end
 end
