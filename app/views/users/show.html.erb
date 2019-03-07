@@ -8,7 +8,9 @@
 <%= link_to "Create a new Recipe", new_recipe_path  %>
 
 <h1>My recipes</h1>
-
+  <% @saved_recipes.each do |saved_recipe| %>
+  <%= saved_recipe.recipe.name %>
+  <% end %>
 
 <h3>Updated Recipes</h3>
 <% @recipes.each do |recipe|%>
