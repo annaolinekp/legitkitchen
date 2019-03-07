@@ -1,7 +1,8 @@
 <div class="main-container">
   <div class="filters">
     <%= link_to 'Starter', recipes_path(category: 'Starter')  %>
-    <%= link_to 'Main', recipes_path(category: 'Main')  %>
+ <!--    <a href="#" class="btn-filter">Start now</a> -->
+    <p class="btn-filter"> <%= link_to 'Main', recipes_path(category: 'Main')  %> </p>
     <%= link_to 'Dessert', recipes_path(category: 'Dessert')  %>
     <%= link_to 'Drink', recipes_path(category: 'Drink')  %>
   </div>
