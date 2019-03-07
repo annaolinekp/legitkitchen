@@ -1,23 +1,19 @@
 <div class="main-container">
   <div class="filters">
-    <%= link_to 'Starter', recipes_path(category: 'Starter')  %>
- <!--    <a href="#" class="btn-filter">Start now</a> -->
+    <p class="btn-filter btn-filter:hover"> <%= link_to 'Starter', recipes_path(category: 'Starter')  %> </p>
     <p class="btn-filter"> <%= link_to 'Main', recipes_path(category: 'Main')  %> </p>
-    <%= link_to 'Dessert', recipes_path(category: 'Dessert')  %>
-    <%= link_to 'Drink', recipes_path(category: 'Drink')  %>
+    <p class="btn-filter"> <%= link_to 'Dessert', recipes_path(category: 'Dessert')  %></p>
+    <p class="btn-filter"> <%= link_to 'Drink', recipes_path(category: 'Drink')  %></p>
   </div>
-  <!-- <div class="title">
+  <div class="title">
     <h1>Recipes</h1>
   </div>
-   -->
-
 
 
   <div class="container-flex">
     <div id="country">
       <%= image_tag "map_logo.png" %>
     </div>
-
     <div class="card-container">
       <% @recipes.each do |recipe| %>
         <div class="recipe-card">
