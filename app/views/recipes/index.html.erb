@@ -30,9 +30,10 @@
             <% end %>
           <% end %>
           <div class="heart">
-            <div class="heart-container">
-              <%= link_to recipe_saved_recipes_path(recipe) %>
-              <i class="fas fa-heart heart-icon"></i>
+            <div id="heart_container_<%= recipe.id %>" class="heart-container">
+              <%= link_to recipe_saved_recipes_path(recipe), method: :post, remote: true  do %>
+                <i id="heart_<%= recipe.id %>" class="fas fa-heart heart-icon"></i>
+              <% end %>
             </div>
           </div>
         </div>
