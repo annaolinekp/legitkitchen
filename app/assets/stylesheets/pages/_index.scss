@@ -18,6 +18,13 @@
 
 .info-card {
   justify-content: left;
+  h2 {
+    font-size:20px;
+    padding:10px;
+  }
+  p {
+    padding:10px;
+  }
 }
 
 .recipe-card img {
@@ -40,9 +47,39 @@
 
 #country {
   height: 100vh;
+  width: 70%;
   position: sticky;
   top: 64px;
+  display: flex;
+  justify-content: center;
   img {
     width: 100%;
   }
+}
+
+.heart {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 50px;
+  width: 80px;
+  background: green;
+  background: -moz-linear-gradient(-32deg, #ffa783 50%, white 50%);
+  background: -webkit-linear-gradient(-32deg, #ffa783 50%, white 50%);
+  background: linear-gradient(-32deg, #ffa783 50%, white 50%);
+}
+
+.heart-container {
+  position: relative;
+  height:100%;
+
+}
+
+
+.heart-icon {
+  position: absolute;
+  bottom: 7px;
+  right: 9px;
+  color: white;
+  font-size: 20px;
 }

@@ -5,19 +5,20 @@
     <p class="btn-filter"> <%= link_to 'Dessert', recipes_path(category: 'Dessert')  %></p>
     <p class="btn-filter"> <%= link_to 'Drink', recipes_path(category: 'Drink')  %></p>
   </div>
-  <div class="title">
+  <!-- <div class="title">
     <h1>Recipes</h1>
-  </div>
+  </div> -->
 
 
   <div class="container-flex">
     <div id="country">
-      <%= image_tag "map_logo.png" %>
+      <%= image_tag "india.svg" %>
     </div>
     <div class="card-container">
       <% @recipes.each do |recipe| %>
         <div class="recipe-card">
-          <%= cl_image_tag recipe.picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
+          <%#= cl_image_tag recipe.picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
+          <%= image_tag 'https://images.unsplash.com/photo-1527976746453-f363eac4d889?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60' %>
           <div class="info-card">
             <h2><%= link_to recipe.name, recipe_path(recipe) %></h2>
             <p><%= recipe.description%></p>
@@ -28,6 +29,12 @@
               <p><%= link_to 'Create a recipe', new_recipe_path %></p>
             <% end %>
           <% end %>
+          <div class="heart">
+            <div class="heart-container">
+              <%= link_to recipe_saved_recipes_path %>
+              <i class="fas fa-heart heart-icon"></i>
+            </div>
+          </div>
         </div>
       <% end %>
     </div>
