@@ -21,6 +21,16 @@ class QuantitiesController < ApplicationController
     redirect_to recipe_path(@quantity.recipe)
   end
 
+  def edit
+    @recipe = Recipe.find(params[:recipe_id])
+    @quantity = Quantity.find(params[:id])
+  end
+
+  def update
+    @quantity = Quantity.find(params[:id])
+    @quantity.update(quantity_params)
+  end
+
   private
 
   def quantity_params

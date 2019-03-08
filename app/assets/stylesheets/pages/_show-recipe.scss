@@ -1,4 +1,4 @@
-.main-recipe-container, .recipe-info-container {
+.main-recipe-container, .recipe-info-container, .wrap-ingredients {
   display: flex;
   // justify-content: center;
 }
@@ -15,22 +15,20 @@
 .ingredient-main-container {
   background: $main-color;
   opacity: 0.5;
-  width: 350px;
+  width: 280px;
   padding: 24px;
-  // height: 100%;
 }
 
-// .ingredient-container, .time-info {
-//   margin: 0 15px;
-// }
-
 .method {
-  margin: 0 20px;
-  padding: 24px;
+  // margin: 0 20px;
+  padding: 0 24px;
+  width: 50%;
 }
 
 .recipe-box {
   height: 100%;
 }
+
+
 
 

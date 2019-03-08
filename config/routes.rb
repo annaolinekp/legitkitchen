@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :recipes do
     resources :comments, only: :create
-    resources :quantities, only: [:new, :create]
+    resources :quantities, only: [:new, :create, :edit, :update]
     resources :saved_recipes, only: [:new, :create]
   end
 

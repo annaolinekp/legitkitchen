@@ -36,12 +36,14 @@
 
         <div class="ingredient-container">
           <% @recipe.quantities.each do |quantity|%>
+          <div class="wrap-ingredients">
             <div class="ingredient-amount">
-              <%= quantity.description %>
+             <p> <%= quantity.description %> </p>
             </div>
             <div class="ingredient-type">
               <%= quantity.ingredient.name %>
             </div>
+          </div>
             <% if @recipe.user == current_user%>
               <%= link_to "delete", quantity_path(quantity), method: :delete, class: "link" %>
               <% end %>
