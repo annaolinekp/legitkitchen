@@ -16,7 +16,7 @@
         <% @saved_recipes.each do |saved_recipe| %>
           <div class="recipe-card-user">
             <%= cl_image_tag saved_recipe.recipe.picture_url %>
-            <%= link_to saved_recipe.recipe.name, recipe_path(saved_recipe) %>
+            <%= link_to saved_recipe.recipe.name, recipe_path(saved_recipe.recipe) %>
           </div>
         <% end %>
       </div>
