@@ -1,3 +1,4 @@
+<h1 class="text-left" style= "padding-left: 40px;"><%= @recipe.name %></h1>
 <div class="main-recipe-container">
 
   <div class="container-left">
@@ -6,22 +7,22 @@
       <%= cl_image_tag @recipe.picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
     </div>
     <div class="footer-banner">
-   <!--    <i id="" class="fas fa-heart heart-icon"></i> -->
+      <i class="fas fa-heart heart-icon"></i>
       <i class="fas fa-comment-alt"></i>
       <i class="fas fa-share-alt"></i>
     </div>
     </div>
 
     <div>
-      <div>
+      <div class="comment-container">
         <p id="counter"> <%= pluralize @recipe.comments.size, "comment" %> </p>
         <div id="comments">
-            <% @recipe.comments.each do |comment| %>
-              <li id="comment-<%= comment.id %>">
-                <p> <%= comment.content %> </p>
-                <p> <%= link_to "Delete", comment_path(comment), method: :delete, remote: true %> </p>
-              </li>
-            <% end %>
+          <% @recipe.comments.each do |comment| %>
+            <li id="comment-<%= comment.id %>">
+              <p> <%= comment.content %> </p>
+              <p> <%= link_to "Delete", comment_path(comment), method: :delete, remote: true %> </p>
+            </li>
+          <% end %>
         </div>
       </div>
       <div>
@@ -42,17 +43,19 @@
 
         <div class="wrap-ingredients">
           <% @recipe.quantities.each do |quantity|%>
-
             <div class="ingredient-amount">
-              <p> <%= quantity.description %> </p>
+              <p> <%= quantity.description %>  <%= quantity.ingredient.name %>
+  <!--           <div class="ingredient-type">
+
+            </div> -->
+            <span style="margin-left: 20px;">
+              <% if @recipe.user == current_user%>
+                <%= link_to quantity_path(quantity), method: :delete, class: "link" do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %>
+              </span>
+               </p>
             </div>
-            <div class="ingredient-type">
-              <%= quantity.ingredient.name %>
-            </div>
-            <% if @recipe.user == current_user%>
-              <%= link_to quantity_path(quantity), method: :delete, class: "link"  do %>
-                <i class="fas fa-trash"></i>
-              <% end %>
             <% end %>
           <% end %>
         </div>

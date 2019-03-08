@@ -8,7 +8,7 @@
 }
 
 .container-left {
-  margin: 60px;
+  margin: 60px 40px;
   width: 40%;
    img {
     border-radius: 4px;
@@ -20,13 +20,17 @@
 }
 
 .ingredient-main-container {
-  flex-shrink: 0;
+  // flex-shrink: 0;
   // width: 30%;
   flex-direction: column;
   width: 280px;
   padding: 24px;
    p {
     padding-right: 8px;
+   }
+
+   a {
+    color: white;
    }
 }
 
@@ -45,6 +49,7 @@
   background: $main-color;
   opacity: 0.6;
 }
+
 
 
 
