@@ -20,13 +20,14 @@ class SavedRecipesController < ApplicationController
 
   def destroy
     # 1. I need to find the recipe I want to unsave
-    @recipe = Recipe.find(params[:recipe_id])
+    @saved_recipe = SavedRecipe.find(params[:id])
     # 2. then destroy it
-    @recipe.destroy
+    @saved_recipe.destroy
+    @recipe = @saved_recipe.recipe
     respond_to do |format|
-        format.html { redirect_to recipe_path(@saved_recipe.recipe) }
-        format.js
+      format.html { redirect_to recipe_path(@saved_recipe.recipe) }
+      format.js
     end
-
   end
+
 end

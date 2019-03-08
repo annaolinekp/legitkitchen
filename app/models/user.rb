@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :recipes
+  has_many :saved_recipes
   # validates :profile_picture_url, presence: true
   mount_uploader :profile_picture_url, PhotoUploader
   def self.find_for_facebook_oauth(auth)
