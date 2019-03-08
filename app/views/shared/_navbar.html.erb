@@ -23,7 +23,11 @@
 
   <div class="navbar-nav">
     <% if user_signed_in? %>
-      <%= link_to image_tag("default_avatar.png"), user_path(current_user), class: "avatar" %>
+      <div class="avatar">
+        <%= link_to user_path(current_user) do %>
+          <%= cl_image_tag current_user.profile_picture_url %>
+        <% end %>
+      </div>
     <% else %>
       <li class="item">
         <%= link_to "LOGIN", new_user_session_path, class: "link-item" %>
