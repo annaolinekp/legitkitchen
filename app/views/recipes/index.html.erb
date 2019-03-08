@@ -35,7 +35,7 @@
           <% end %>
           <div class="heart">
             <div id="heart_container_<%= recipe.id %>" class="heart-container">
-              <% if current_user.saved_recipes.any? { |saved_recipe| saved_recipe.recipe == recipe } %>
+              <% if current_user && current_user.saved_recipes.any? { |saved_recipe| saved_recipe.recipe == recipe } %>
                 <%= link_to saved_recipe_path(recipe.saved_recipes.select{|rec| rec.recipe == recipe}), method: :delete, remote: true  do %>
                   <i id='heart_<%= recipe.id %>' class='fas fa-heart heart-icon' style='color: red;'></i>
                 <% end %>
@@ -51,3 +51,6 @@
     </div>
   </div>
 </div>
+
+
+
