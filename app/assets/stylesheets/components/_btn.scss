@@ -3,15 +3,18 @@
 
   color: #999999;
   border: 1px solid #999999;
-  padding: 4px 30px;
-  border-radius: 50px;
+  border-color: #92a8d1;
+  padding: 5px 30px;
+  border-radius: 10px;
   font-weight: lighter;
   opacity: 0.6;
   text-decoration:none;
+  margin: 20px;
+
 }
 
 .btn-filter:hover{
-  background-color:#ffa783;
+  /* background-color:#ffa783; */
   text-decoration: none;
 }
 
