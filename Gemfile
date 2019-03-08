@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
+gem 'acts_as_votable', '~> 0.12.0'
 gem "figaro"
 gem 'omniauth-facebook'
 gem 'carrierwave', '~> 1.2'
