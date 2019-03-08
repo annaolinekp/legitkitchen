@@ -1,55 +1,57 @@
 <div class="main-container">
-  <div class="row justify-content-center">
-    <div class="food-picture">
-      <%= image_tag "food-banner1.png" %>
-    </div>
-    <div class="col-6 justify-content-center">
-      <h2>Sign up</h2>
-
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.error_notification %>
-
-        <div class="form-inputs">
-          <%= f.input :first_name,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "first name" },
-                      placeholder: "Mary"%>
-          <%= f.input :last_name,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "last name" },
-                      placeholder: "Poppins"%>
-          <%= f.input :profile_picture_url, as: :file,
-                      require: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "profile picture" },
-                      placeholder: "Upload your photo"%>
-          <%= f.input :profile_picture_url_cache, as: :hidden %>
-          <%= f.input :email,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" }%>
-          <%= f.input :password,
-                      required: true,
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
-                      required: true,
-                      input_html: { autocomplete: "new-password" } %>
-        </div>
-
-        <div class="form-actions btn">
-          <%= f.button :submit, "Sign up" %>
-        </div>
-      <% end %>
-
-      <div>
-        <%= render "devise/shared/links" %>
+  <div class="new-user">
+    <div class="row justify-content-center">
+      <div class="food-picture">
+        <%= image_tag "food-banner1.png" %>
       </div>
-    </div>
-    <div class="food-picture">
-      <%= image_tag "food-banner2.png" %>
+      <div class="col-6 justify-content-center">
+        <h2>Sign up</h2>
+
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+            <%= f.input :first_name,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "first name" },
+                        placeholder: "Mary"%>
+            <%= f.input :last_name,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "last name" },
+                        placeholder: "Poppins"%>
+            <%= f.input :profile_picture_url, as: :file,
+                        require: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "profile picture" },
+                        placeholder: "Upload your photo"%>
+            <%= f.input :profile_picture_url_cache, as: :hidden %>
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" }%>
+            <%= f.input :password,
+                        required: true,
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        input_html: { autocomplete: "new-password" } %>
+            <%= f.input :password_confirmation,
+                        required: true,
+                        input_html: { autocomplete: "new-password" } %>
+          </div>
+
+          <div class="form-actions btn">
+            <%= f.button :submit, "Sign up" %>
+          </div>
+        <% end %>
+
+        <div>
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+      <div class="food-picture">
+        <%= image_tag "food-banner2.png" %>
+      </div>
     </div>
   </div>
 </div>
