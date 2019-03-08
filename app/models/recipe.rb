@@ -4,7 +4,7 @@ class Recipe < ApplicationRecord
   attr_accessor :ingredients
   has_many :comments
   has_many :quantities, dependent: :destroy
-  has_many :saved_recipes
+  has_many :saved_recipe, dependent: :destroy
   has_many :comments, dependent: :destroy
 
   validates :name, presence: true
