@@ -1,0 +1,99 @@
+.main-container-user {
+  display: flex;
+  justify-content: center;
+}
+
+.user_show_avatar {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.recipe-card-user img {
+  object-fit: cover;
+  height: 70%;
+  width: 150px !important;
+}
+
+.recipe-card-user {
+  text-align: center;
+  margin: 20px;
+  width: 150px;
+  height: 200px;
+  box-shadow: 4px 2px 41px -9px rgba(171,168,171,0.86);
+  border-radius: 4px;
+}
+
+.recipe-card-favourite {
+  width: 150px;
+  height: 200px;
+  box-shadow: 4px 2px 41px -9px rgba(171,168,171,0.86);
+  border-radius: 4px;
+}
+
+.fa {
+  font-size: 10px;
+}
+
+.fas {
+  font-size: 24px;
+}
+
+.chef-picture {
+  width: 50px;
+  height: 50px;
+}
+
+#create-recipe-link {
+  text-align: center;
+}
+
+#my-recipes {
+  display: flex;
+  justify-content: center;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#favourite-recipes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#user-show {
+  margin-top: 20px;
+  justify-content: center;
+  width: 70%;
+  height: 80%;
+  box-shadow: 4px 2px 41px -9px rgba(171,168,171,0.86);
+  border-radius: 8px;
+}
+
+#log-out {
+  text-align: center;
+}
+
+#create-recipe-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#create-recipe-link p {
+  padding-right: 10px;
+}
+
+h1 {
+  padding-top: 20px;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+p {
+  font-size: 24px;
+  padding-top: 10px;
+  text-align: center;
+}
