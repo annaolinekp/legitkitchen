@@ -1,3 +1,7 @@
+.login-container {
+  text-align: center
+}
+
 .col-login {
   justify-content: center;
   margin-top: 32px;
@@ -11,6 +15,7 @@
   text-align: center;
   width: 400px !important;
   flex: 0 0 25% !important;
+  display: inline-block;
 }
 
 .links {
