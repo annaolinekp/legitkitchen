@@ -1,9 +1,15 @@
 <div class="main-recipe-container">
 
   <div class="container-left">
-
+    <div class="image-card">
     <div class="recipe-img">
       <%= cl_image_tag @recipe.picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
+    </div>
+    <div class="footer-banner">
+   <!--    <i id="" class="fas fa-heart heart-icon"></i> -->
+      <i class="fas fa-comment-alt"></i>
+      <i class="fas fa-share-alt"></i>
+    </div>
     </div>
 
     <div>
@@ -31,51 +37,45 @@
 
 
   <div class="recipe-info-container">
-    <div class="d-flex recipe-box">
+    <div class="recipe-box">
       <div class="ingredient-main-container">
 
-        <div class="ingredient-container">
+        <div class="wrap-ingredients">
           <% @recipe.quantities.each do |quantity|%>
+
             <div class="ingredient-amount">
-              <%= quantity.description %>
+              <p> <%= quantity.description %> </p>
             </div>
             <div class="ingredient-type">
               <%= quantity.ingredient.name %>
             </div>
             <% if @recipe.user == current_user%>
-              <%= link_to "delete", quantity_path(quantity), method: :delete, class: "link" %>
+              <%= link_to quantity_path(quantity), method: :delete, class: "link"  do %>
+                <i class="fas fa-trash"></i>
               <% end %>
+            <% end %>
           <% end %>
         </div>
 
         <div class="time-info">
-          <p>
+          <span>
+            <p> preptime : </p>
+           <p> <%= @recipe.preptime %></p>
+          </span>
+          <span>
+            <p> cooktime : </p>
             <%= @recipe.cooktime %>
-          </p>
-          <p>
-           <%= @recipe.preptime %>
-          </p>
-          <p>
-            <%= @recipe.category %>
-          </p>
-          <p>
-            <%= @recipe.dietary_requirements%>
-          </p>
+          </span>
+        <!--   <p> <%= @recipe.category %> </p>
+          <p> <%= @recipe.dietary_requirements%> </p> -->
         </div>
 
       </div>
 
-      <div class="method">
-        <p><%= @recipe.description %></p>
-      </div>
     </div>
-
-    <%= link_to 'Go back to all recipes', recipes_path %>
-
+    <div class="method">
+      <p><%= @recipe.description %></p>
+    </div>
   </div>
-
-
-
-
-
 </div>
+    <%= link_to 'Go back to all recipes', recipes_path %>
