@@ -45,24 +45,6 @@ puts 'Creating 10 fake users...'
   )
   user.save!
 
-puts 'Creating 2 fake recipes...'
-  2.times do
-    recipe = Recipe.new(
-      name: Faker::Food.unique.dish,
-      description: Faker::Food.description,
-      # category: Faker::Nation.nationality,
-      cooktime: "15min",
-      preptime: "30min",
-      # picture_url: "res.cloudinary.com/do6brpyuo/image/upload/v1551872540/lism2u71mmxu0ichi4bw.jpg",
-      user: user,
-      dietary_requirements: dietary_requirements.sample,
-      category: categories.sample
-
-    )
-    recipe.save!
-  end
-end
-
 puts 'Seeding countries...'
   50.times do
     country = Country.new(
