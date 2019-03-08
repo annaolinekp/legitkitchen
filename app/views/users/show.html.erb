@@ -1,31 +1,45 @@
-<h1>User Profile</h1>
-<div>
-  <%= cl_image_tag @user.profile_picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
-</div>
+<div class="main-container-user">
+  <div id="user-show">
+    <div class="user_show_avatar">
+      <%= cl_image_tag @user.profile_picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
+    </div>
+    <p> <%= @user.first_name.upcase %> </p>
+    <div id="create-recipe-link">
+      <p> Create a new recipe </p>
+      <%= link_to new_recipe_path do  %>
+      <i class="fas fa-utensils"></i>
+      <% end %>
+    </div>
 
-<h3>User description</h3>
-
-<%= link_to "Create a new Recipe", new_recipe_path  %>
-
-<h1>My Saved Recipes</h1>
-
-    <% @saved_recipes.each do |saved_recipe| %>
-      <div class="recipe-card-show">
-        <%= saved_recipe.recipe.name %>
-        <%= saved_recipe.recipe.picture_url %>
+    <h2>FAVOURITE RECIPES</h2>
+      <div id="my-recipes">
+        <% @saved_recipes.each do |saved_recipe| %>
+          <div class="recipe-card-user">
+            <%= cl_image_tag saved_recipe.recipe.picture_url %>
+            <%= link_to saved_recipe.recipe.name, recipe_path(saved_recipe) %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
 
-
-<h3>Updated Recipes</h3>
-<% @recipes.each do |recipe|%>
-  <div>
-   <%= recipe.name %>
-   <%= link_to "delete", recipe_path(recipe), method: :delete%>
+    <h2>MY RECIPES</h2>
+      <div id="my-recipes">
+        <% @recipes.each do |recipe|%>
+          <div class="recipe-card-user">
+            <%= cl_image_tag recipe.picture_url %>
+              <%= link_to recipe.name, recipe_path(recipe) %>
+            <div class="delete">
+              <%= link_to recipe_path(recipe), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fa fa-trash destroy_recipe"></i>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <div id="log-out">
+      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    </div>
   </div>
-<% end %>
-
-<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+</div>
 
 
 
