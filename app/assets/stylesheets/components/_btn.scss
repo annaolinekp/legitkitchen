@@ -1,17 +1,23 @@
 
 .btn-filter {
- color: #999999;
-    border: 1px solid #999999;
-    padding: 4px 30px;
-    border-radius: 50px;
-    font-weight: lighter;
-    opacity: 0.6;
-    text-decoration:none;
+  color: #999999;
+  border: 1px solid #999999;
+  padding: 4px 30px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  text-decoration:none;
 }
 
 .btn-filter:hover{
-background-color:#ffa783;
-text-decoration: none;
+  background-color:#ffa783;
+  text-decoration: none;
+}
+
+.lg-button {
+  color: #ffa783;
+  border: 1px solid white;
+  border-radius: 4px;
 }
 
 
