@@ -21,20 +21,20 @@
     <div class="card-container">
       <% @recipes.each do |recipe| %>
         <div class="recipe-card">
-          <%#= cl_image_tag recipe.picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
-          <%= image_tag 'https://images.unsplash.com/photo-1527976746453-f363eac4d889?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60' %>
+          <%= cl_image_tag recipe.picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
           <div class="info-card">
             <h2><%= link_to recipe.name, recipe_path(recipe) %></h2>
-            <div class="short-description">
-              <p><%= recipe.description.truncate(30)%></p>
-            </div>
-          </div>
-          <% if current_user %>
-            <% if current_user.id == recipe.user.id %>
-              <%= link_to 'Delete recipe?', recipe_path(recipe), method: :delete, data: { confirm: "Are you sure?" }%>
-              <p><%= link_to 'Create a recipe', new_recipe_path %></p>
+            <p><%= recipe.description.truncate(30) %></p>
+            <% if current_user %>
+              <% if current_user.id == recipe.user.id %>
+                <div id="index-delete">
+                  <%= link_to recipe_path(recipe), method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <i class="fa fa-trash destroy_recipe"></i>
+                  <% end %>
+                </div>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
           <div class="heart">
             <div id="heart_container_<%= recipe.id %>" class="heart-container">
               <% if current_user && current_user.saved_recipes.any? { |saved_recipe| saved_recipe.recipe == recipe } %>

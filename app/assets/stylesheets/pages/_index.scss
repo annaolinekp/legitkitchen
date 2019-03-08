@@ -10,13 +10,19 @@
   justify-content: center;
 }
 
+.main-container-index a {
+  color: #ffa783
+}
+
+.main-container-index a:hover {
+  color: #ffa783
+}
+
 .filters {
   padding-top: 50px;
   padding-bottom: 50px;
   display: flex;
   justify-content: flex-end;
-
-
 }
 
 .info-card {
@@ -60,6 +66,11 @@
   }
 }
 
+#index-delete {
+  padding-top: 20px;
+  padding-left: 15px;
+}
+
 .heart {
   position: absolute;
   bottom: 0;
@@ -87,10 +98,6 @@
   font-size: 20px;
 }
 
-.short-description {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 /* .filter-button-container{
 
   text-align:center;
