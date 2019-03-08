@@ -34,3 +34,14 @@
   display: flex;
   justify-content: center;
 }
+
+.recipe-card-show {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  box-shadow: 4px 2px 41px -9px rgba(171,168,171,0.86);
+  border-radius: 4px;
+  margin-bottom: 20px;
+
+}
