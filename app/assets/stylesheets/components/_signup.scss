@@ -17,10 +17,15 @@
 }
 
 .food-picture img {
+  padding-top: 150px;
+  padding-left: 20px;
+  padding-right: 20px;
   z-index: -1;
+  width: 200px;
+  height: 600px;
 }
 
-h2 {
+.new-user h2 {
   text-align: center;
   padding-top: 10px;
   font-style: bolder;
