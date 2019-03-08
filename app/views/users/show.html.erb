@@ -7,7 +7,14 @@
 
 <%= link_to "Create a new Recipe", new_recipe_path  %>
 
-<h1>My recipes</h1>
+<h1>My Saved Recipes</h1>
+
+    <% @saved_recipes.each do |saved_recipe| %>
+      <div class="recipe-card-show">
+        <%= saved_recipe.recipe.name %>
+        <%= saved_recipe.recipe.picture_url %>
+      </div>
+    <% end %>
 
 
 <h3>Updated Recipes</h3>
