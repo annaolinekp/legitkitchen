@@ -87,6 +87,10 @@
   font-size: 20px;
 }
 
+.short-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 /* .filter-button-container{
 
   text-align:center;
