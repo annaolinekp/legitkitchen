@@ -7,7 +7,17 @@
         <%= cl_image_tag @recipe.picture_url, height: 300, dpr: 3.0, crop: :fill %>
       </div>
       <div class="footer-banner">
-        <i class="fas fa-heart"></i>
+        <div id="heart_container_<%= @recipe.id %>">
+          <% if current_user && current_user.saved_recipes.any? { |saved_recipe| saved_recipe.recipe == @recipe } %>
+            <%= link_to saved_recipe_path(@recipe.saved_recipes.select{|rec| rec.recipe == @recipe}), method: :delete, remote: true  do %>
+              <i id='heart_<%= @recipe.id %>' class='fas fa-heart' style='color: #4E97BB;'></i>
+            <% end %>
+          <% else %>
+            <%= link_to recipe_saved_recipes_path(@recipe), method: :post, remote: true  do %>
+              <i "heart_<%= @recipe.id %>" class="fas fa-heart"></i>
+            <% end %>
+          <% end %>
+        </div>
         <i class="fas fa-comment-alt"></i>
         <i class="fas fa-share-alt"></i>
       </div>
@@ -18,9 +28,9 @@
         <p id="counter"> <%= pluralize @recipe.comments.size, "comment" %> </p>
         <div id="comments">
           <% @recipe.comments.each do |comment| %>
-            <div id="comment-<%= comment.id %>">
+            <div class="comment d-inline" id="comment-<%= comment.id %>">
               <p> <%= comment.content %> </p>
-              <p> <%= link_to "Delete", comment_path(comment), method: :delete, remote: true %> </p>
+              <p> <%= link_to "Delete", comment_path(comment), method: :delete, remote: true, class: "link" %> </p>
             </div>
           <% end %>
         </div>
@@ -78,4 +88,4 @@
     </div>
   </div>
 </div>
-    <%= link_to 'Go back to all recipes', recipes_path %>
+<%= link_to 'Go back to all recipes', recipes_path, class: "link"%>
