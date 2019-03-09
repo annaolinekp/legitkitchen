@@ -7,6 +7,8 @@ class SavedRecipesController < ApplicationController
     # 3. save recipe
     if @saved_recipe.save
       respond_to do |format|
+        # redirect to recipe just liked (recipe_path) and the new instance of saved recipe
+        # and the saved recipe
         format.html { redirect_to recipe_path(@saved_recipe.recipe) }
         format.js  # <-- will render `app/views/comments/create.js.erb`
       end
