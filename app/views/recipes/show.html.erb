@@ -1,16 +1,16 @@
-<h1 class="text-left" style= "padding-left: 40px;"><%= @recipe.name %></h1>
 <div class="main-recipe-container">
 
   <div class="container-left">
     <div class="image-card">
-    <div class="recipe-img">
-      <%= cl_image_tag @recipe.picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
-    </div>
-    <div class="footer-banner">
-      <i class="fas fa-heart heart-icon"></i>
-      <i class="fas fa-comment-alt"></i>
-      <i class="fas fa-share-alt"></i>
-    </div>
+      <h1> <%= @recipe.name %> </h1>
+      <div class="recipe-img">
+        <%= cl_image_tag @recipe.picture_url, height: 300, dpr: 3.0, crop: :fill %>
+      </div>
+      <div class="footer-banner">
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-comment-alt"></i>
+        <i class="fas fa-share-alt"></i>
+      </div>
     </div>
 
     <div>
@@ -18,10 +18,10 @@
         <p id="counter"> <%= pluralize @recipe.comments.size, "comment" %> </p>
         <div id="comments">
           <% @recipe.comments.each do |comment| %>
-            <li id="comment-<%= comment.id %>">
+            <div id="comment-<%= comment.id %>">
               <p> <%= comment.content %> </p>
               <p> <%= link_to "Delete", comment_path(comment), method: :delete, remote: true %> </p>
-            </li>
+            </div>
           <% end %>
         </div>
       </div>
@@ -36,47 +36,44 @@
     </div>
   </div>
 
-
   <div class="recipe-info-container">
-    <div class="recipe-box">
-      <div class="ingredient-main-container">
 
+    <div class="ingredient-main-container">
+      <p>Ingredients</p>
+      <div class="ingredient-column">
         <div class="wrap-ingredients">
           <% @recipe.quantities.each do |quantity|%>
             <div class="ingredient-amount">
               <p> <%= quantity.description %>  <%= quantity.ingredient.name %>
-  <!--           <div class="ingredient-type">
-
-            </div> -->
-            <span style="margin-left: 20px;">
               <% if @recipe.user == current_user%>
-                <%= link_to quantity_path(quantity), method: :delete, class: "link" do %>
+                <span style="margin-left: 20px;">
+                  <%= link_to quantity_path(quantity), method: :delete, class: "link" do %>
                   <i class="far fa-trash-alt"></i>
-                <% end %>
-              </span>
+                  <% end %>
+                </span>
+              <% end %>
                </p>
             </div>
-            <% end %>
           <% end %>
         </div>
 
         <div class="time-info">
           <span>
             <p> preptime : </p>
-           <p> <%= @recipe.preptime %></p>
+            <p> <%= @recipe.preptime %></p>
           </span>
           <span>
             <p> cooktime : </p>
             <%= @recipe.cooktime %>
           </span>
         <!--   <p> <%= @recipe.category %> </p>
-          <p> <%= @recipe.dietary_requirements%> </p> -->
+            <p> <%= @recipe.dietary_requirements%> </p> -->
         </div>
-
       </div>
 
     </div>
     <div class="method">
+      <p>Method</p>
       <p><%= @recipe.description %></p>
     </div>
   </div>
