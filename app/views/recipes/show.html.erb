@@ -6,7 +6,7 @@
       <div class="recipe-img">
         <%= cl_image_tag @recipe.picture_url, height: 300, dpr: 3.0, crop: :fill %>
       </div>
-      <div class="footer-banner">
+      <div class="footer-banner d-flex">
         <div id="heart_container_<%= @recipe.id %>">
           <% if current_user && current_user.saved_recipes.any? { |saved_recipe| saved_recipe.recipe == @recipe } %>
             <%= link_to saved_recipe_path(@recipe.saved_recipes.select{|rec| rec.recipe == @recipe}), method: :delete, remote: true  do %>
@@ -54,33 +54,27 @@
   <div class="recipe-info-container">
 
     <div class="ingredient-main-container">
-      <p>Ingredients</p>
+      <h3>Ingredients</h3>
       <div class="ingredient-column">
         <div class="wrap-ingredients">
           <% @recipe.quantities.each do |quantity|%>
             <div class="ingredient-amount">
-              <p> <%= quantity.description %>  <%= quantity.ingredient.name %>
-              <% if @recipe.user == current_user%>
-                <span style="margin-left: 20px;">
+              <p> <%= quantity.description %> <%= quantity.ingredient.name %> </p>
+              <div>
+                <% if @recipe.user == current_user%>
                   <%= link_to quantity_path(quantity), method: :delete, class: "link" do %>
                   <i class="far fa-trash-alt"></i>
                   <% end %>
-                </span>
-              <% end %>
-               </p>
+                <% end %>
+              </div>
             </div>
           <% end %>
         </div>
 
-        <div class="time-info">
-          <span>
-            <p> preptime : </p>
-            <p> <%= @recipe.preptime %></p>
-          </span>
-          <span>
-            <p> cooktime : </p>
-            <%= @recipe.cooktime %>
-          </span>
+        <div class="r-info">
+          <p> PREPTIME : <%= @recipe.preptime %> min </p>
+          <p> COOKTIME : <%= @recipe.cooktime %> min </p>
+          <p> SERVINGS :</p>
         <!--   <p> <%= @recipe.category %> </p>
             <p> <%= @recipe.dietary_requirements%> </p> -->
         </div>
@@ -88,7 +82,7 @@
 
     </div>
     <div class="method">
-      <p>Method</p>
+      <h3>Method</h3>
       <p><%= @recipe.description %></p>
     </div>
   </div>
