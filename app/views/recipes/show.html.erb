@@ -28,9 +28,14 @@
         <p id="counter"> <%= pluralize @recipe.comments.size, "comment" %> </p>
         <div id="comments">
           <% @recipe.comments.each do |comment| %>
-            <div class="comment d-inline" id="comment-<%= comment.id %>">
-              <p> <%= comment.content %> </p>
-              <p> <%= link_to "Delete", comment_path(comment), method: :delete, remote: true, class: "link" %> </p>
+            <div class="comment d-flex" id="comment-<%= comment.id %>">
+                <div>
+                  <%= cl_image_tag comment.user.profile_picture_url, width: 250, height: 250, dpr: 3.0, crop: :thumb, gravity: :face, class: "user-avatar" %>
+                </div>
+                <div class="user-comment">
+                  <p> <%= comment.content %> </p>
+                  <p> <%= link_to "Delete", comment_path(comment), method: :delete, remote: true, class: "link" %> </p>
+                </div>
             </div>
           <% end %>
         </div>
