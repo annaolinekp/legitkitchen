@@ -4,7 +4,7 @@
     <div class="image-card">
       <h1> <%= @recipe.name %> </h1>
       <div class="recipe-img">
-        <%= cl_image_tag @recipe.picture_url, height: 300, dpr: 3.0, crop: :fill %>
+        <%= cl_image_tag @recipe.picture_url, width: 640, height: 420, dpr: 3.0, crop: :fill %>
       </div>
       <div class="footer-banner d-flex">
         <div id="heart_container_<%= @recipe.id %>">
