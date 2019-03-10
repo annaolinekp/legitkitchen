@@ -41,11 +41,15 @@
   font-weight: lighter;
 }
 
-.method {
+.method-container {
   margin-left: 30px;
   width: 70%;
-  overflow: scroll;
   line-height: 2rem;
+}
+
+.method {
+  height: 100vh;
+  overflow: scroll;
 }
 
 .user-comment {
