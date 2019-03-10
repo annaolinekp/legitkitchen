@@ -1,7 +1,9 @@
 .main-recipe-container, .recipe-info-container, .ingredient-main-container, .ingredient-column, .ingredient-amount {
   display: flex;
 }
-
+.main-recipe-container{
+  height: 100vh;
+}
 .ingredient-column, .ingredient-main-container {
    flex-direction: column;
 }
@@ -36,7 +38,8 @@
   height: 70vh;
   width: 280px;
   padding: 24px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   background: rgba(255, 167, 131, 0.4);
   font-weight: lighter;
 }
@@ -68,4 +71,3 @@
     line-height: 2rem;
    }
 }
-
