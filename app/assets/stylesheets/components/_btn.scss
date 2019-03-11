@@ -24,4 +24,9 @@
   border-radius: 4px;
 }
 
-
+.link {
+  color: $main-color;
+  &:hover{
+    color: $main-color;
+  }
+}
