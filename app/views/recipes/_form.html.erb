@@ -32,11 +32,20 @@
     <%= f.input :picture_url_cache, as: :hidden %>
   </div>
 
+  <% if ingredients_matches_amounts == false %>
+      <div class="errors-container">
+        <ul>
+          <li>Ingredients does not match amounts</li>
+        </ul>
+      </div>
+    <% end %>
+
   <div class="form-inputs">
     <%= f.simple_fields_for "ingredients" do |i| %>
       <%= i.input "ingredient_id0", collection: Ingredient.all, label: "Ingredient"  %>
     <% end %>
   </div>
+
 
   <div class="form-inputs">
     <%= f.simple_fields_for "amounts" do |i| %>

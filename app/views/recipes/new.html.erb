@@ -7,7 +7,7 @@
       <div class="col-6 justify-content-center">
         <h1>CREATE YOUR RECIPE</h1>
         <div class="recipe-form">
-          <%= render 'recipes/form'  %>
+          <%= render 'recipes/form', ingredients_matches_amounts: @ingredients_matches_amounts %>
 
           <div id="return-home">
             <%= link_to "Back to your profile", user_path(current_user) %>
