@@ -1,11 +1,17 @@
 <div class="main-container-index ">
   <div class="filters">
       <!-- <p>Filter by:</p> -->
-      <p class="btn-filter btn-filter:hover"> <%= link_to 'Appetiser', recipes_path(category: 'Appetiser')  %> </p>
-      <p class="btn-filter"> <%= link_to 'Main', recipes_path(category: 'Main')  %> </p>
-      <p class="btn-filter"> <%= link_to 'Dessert', recipes_path(category: 'Dessert')  %></p>
-      <p class="btn-filter"> <%= link_to 'Drink', recipes_path(category: 'Drink')  %></p>
-
+      <% if @search != "" %>
+        <p class="btn-filter btn-filter:hover"> <%= link_to 'Appetiser', recipes_path(search: @search, category: 'Appetiser')  %> </p>
+        <p class="btn-filter"> <%= link_to 'Main', recipes_path(search: @search, category: 'Main')  %> </p>
+        <p class="btn-filter"> <%= link_to 'Dessert', recipes_path(search: @search, category: 'Dessert')  %></p>
+        <p class="btn-filter"> <%= link_to 'Drink', recipes_path(search: @search, category: 'Drink')  %></p>
+      <% else %>
+        <p class="btn-filter btn-filter:hover"> <%= link_to 'Appetiser', recipes_path(category: 'Appetiser')  %> </p>
+        <p class="btn-filter"> <%= link_to 'Main', recipes_path(category: 'Main')  %> </p>
+        <p class="btn-filter"> <%= link_to 'Dessert', recipes_path(category: 'Dessert')  %></p>
+        <p class="btn-filter"> <%= link_to 'Drink', recipes_path(category: 'Drink')  %></p>
+      <% end %>
   </div>
   <!-- <div class="title">
     <h1>Recipes</h1>

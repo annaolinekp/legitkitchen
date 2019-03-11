@@ -19,6 +19,7 @@ class Recipe < ApplicationRecord
   include Filterable
   scope :dietary_requirements, -> (dietary_requirements) { where dietary_requirements: dietary_requirements }
   scope :category, -> (category) { where category: category }
+
   # scope :size, -> (size) { where size: size }
   include PgSearch
   pg_search_scope :search_by_name_and_description,

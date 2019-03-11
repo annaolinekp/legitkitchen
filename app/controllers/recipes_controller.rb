@@ -3,8 +3,14 @@ class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    if params[:search].present?
+      @search = params[:search]
+    else
+      @search = ""
+    end
     if params[:search].present? && params[:category].present?
-      @recipes = Recipe.search_by_name_and_description(params[:search]).filter(params(:category))
+      @recipe = Recipe.filter(params.slice(:category))
+      @recipes = @recipe.search_by_name_and_description(params[:search])
     elsif params[:dietary_requirements].present? || params[:category].present?
       @recipes = Recipe.filter(params.slice(:category, :dietary_requirements))
     elsif params[:search].present?
