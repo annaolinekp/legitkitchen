@@ -23,20 +23,27 @@
 
   <div class="navbar-nav" id="logout">
       <% if user_signed_in? %>
+
       <div class="avatar" id="avatar-dropdown">
-        <div class="d-none box">
-          <p><%= link_to "LOGOUT", destroy_user_session_path, class: "link-item" %>"`;</p>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
         </div>
         <%= link_to user_path(current_user) do %>
-          <% if current_user.facebook_picture_url.nil? %>
-            <% if current_user.profile_picture_url.file.nil? %>
-              <% avatar_url = "http://placehold.it/30x30" %>
-              <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-            <% else %>
-                <%= cl_image_tag current_user.profile_picture_url, id: "navbar-wagon-menu" %>
-            <% end %>
+          <% if current_user.facebook_picture_url.present? %>
+            <% avatar_url = current_user.facebook_picture_url %>
+            <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% elsif current_user.profile_picture_url.file.present? %>
+              <%= cl_image_tag current_user.profile_picture_url, id: "navbar-wagon-menu" %>
+          <% end %>
           <% else %>
-            <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+            <% avatar_url = "http://placehold.it/30x30" %>
             <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
         <% end %>
@@ -51,11 +58,10 @@
 
 <script>
 
-const logout = document.getElementById("avatar-dropdown");
-  logout.addEventListener("click", (event) => {
-    logout.innerHTML = `<%= link_to "LOGOUT", destroy_user_session_path, class: "link-item" %>"`;
-
-});
+// const logout = document.getElementById("d-none");
+//   logout.addEventListener("click", (event) => {
+//     logout.removeAttribute("d-none");
+// });
 
 </script>
 
