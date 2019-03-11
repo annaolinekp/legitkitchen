@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
+  belongs_to :country
   has_many :recipes
   has_many :saved_recipes
   # validates :profile_picture_url, presence: true
