@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  devise :omniauthable, omniauth_providers: [:facebook]
   has_many :recipes
   has_many :saved_recipes
   # validates :profile_picture_url, presence: true
