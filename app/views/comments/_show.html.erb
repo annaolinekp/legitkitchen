@@ -1,6 +1,13 @@
-<div>
-  <span><%= cl_image_tag comment.user.profile_picture_url, width: 250, height: 250, dpr: 3.0, crop: :thumb, gravity: :face, class: "user-avatar" %></span><span><%= comment.content %></span>
-  <% if comment.user == current_user %>
-    <span><%= link_to "Delete", comment_path(comment), method: :delete, remote: true, class: "link" %></span>
-  <% end %>
+<div class="comment d-flex" id="comment-<%= comment.id %>">
+  <div>
+    <%= cl_image_tag comment.user.profile_picture_url, width: 250, height: 250, dpr: 3.0, crop: :thumb, gravity: :face, class: "user-avatar" %>
+  </div>
+  <div class="user-comment">
+    <p> <%= comment.content %> </p>
+    <% if comment.user == current_user %>
+      <div>
+        <p> <%= link_to "Delete", comment_path(comment), method: :delete, remote: true, class: "link" %> </p>
+      </div>
+    <% end %>
+  </div>
 </div>
