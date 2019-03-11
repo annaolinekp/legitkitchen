@@ -6,6 +6,7 @@ class Recipe < ApplicationRecord
   has_many :quantities, dependent: :destroy
   has_many :saved_recipes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_one :country, through: :user
 
   validates :name, presence: true
   validates :description, presence: true
