@@ -38,11 +38,12 @@ class RecipesController < ApplicationController
         quantity_array.push(Quantity.new(quantity_hash))
       end
       quantity_array.each do |quantity|
-        if quantity.save
-          next
-        else
-          render 'new' and return
-        end
+        quantity.save
+        # if quantity.save
+        #   next
+        # else
+        #   render 'new' and return
+        # end
       end
       redirect_to recipe_path(@recipe)
     else
@@ -50,25 +51,25 @@ class RecipesController < ApplicationController
     end
   end
 
-  def edit
-    # @recipe.quantity = @quantity
-  end
+  # def edit
+  #   # @recipe.quantity = @quantity
+  # end
 
-  def update
-    if @recipe.update(recipe_params)
-      ingredients_hash = ingredients_params
-      amounts_hash = amounts_params
-      quantity_array = []
-      ingredients_hash.each do |key, value|
-        identity_num = key[-1, 1]
-        quantity_hash = { ingredient_id: value,
-                          description: amounts_hash["amount#{identity_num}"],
-                          recipe_id: @recipe.id }
-        quantity_array.push(Quantity.update(quantity_hash))
-      end
-      redirect_to recipe_path(@recipe)
-    end
-  end
+  # def update
+  #   if @recipe.update(recipe_params)
+  #     ingredients_hash = ingredients_params
+  #     amounts_hash = amounts_params
+  #     quantity_array = []
+  #     ingredients_hash.each do |key, value|
+  #       identity_num = key[-1, 1]
+  #       quantity_hash = { ingredient_id: value,
+  #                         description: amounts_hash["amount#{identity_num}"],
+  #                         recipe_id: @recipe.id }
+  #       quantity_array.push(Quantity.update(quantity_hash))
+  #     end
+  #     redirect_to recipe_path(@recipe)
+  #   end
+  # end
 
   def destroy
     @recipe.destroy
