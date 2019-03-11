@@ -1,11 +1,9 @@
-.title {
-  padding-top: 10px;
-  display: flex;
-  justify-content: center;
+.main-container-index a {
+  color: #ffa783;
 }
 
-.main-container-index a {
-  color: #ffa783
+.main-container-index {
+  padding-top: 40px;
 }
 
 .main-container-index a:hover {
@@ -13,10 +11,10 @@
 }
 
 .filters {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  // padding-top: 50px;
+  // padding-bottom: 50px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .info-card {
