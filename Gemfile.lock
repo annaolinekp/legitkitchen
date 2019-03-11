@@ -138,6 +138,7 @@ GEM
       oauth2 (~> 1.1)
       omniauth (~> 1.9)
     orm_adapter (0.5.0)
+    owlcarousel-rails (2.2.3.5)
     pg (0.21.0)
     pg_search (2.1.4)
       activerecord (>= 4.2)
@@ -258,6 +259,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
   omniauth-facebook
+  owlcarousel-rails
   pg (~> 0.21)
   pg_search
   pry-byebug
