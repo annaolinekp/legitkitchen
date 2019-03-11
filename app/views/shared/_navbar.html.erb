@@ -21,11 +21,24 @@
     <% end %>
   </div>
 
-  <div class="navbar-nav">
+  <div class="navbar-nav" id="logout">
       <% if user_signed_in? %>
-      <div class="avatar">
+      <div class="avatar" id="avatar-dropdown">
+        <div class="d-none box">
+          <p><%= link_to "LOGOUT", destroy_user_session_path, class: "link-item" %>"`;</p>
+        </div>
         <%= link_to user_path(current_user) do %>
-          <%= cl_image_tag current_user.profile_picture_url %>
+          <% if current_user.facebook_picture_url.nil? %>
+            <% if current_user.profile_picture_url.file.nil? %>
+              <% avatar_url = "http://placehold.it/30x30" %>
+              <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <% else %>
+                <%= cl_image_tag current_user.profile_picture_url, id: "navbar-wagon-menu" %>
+            <% end %>
+          <% else %>
+            <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+            <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% end %>
         <% end %>
       </div>
     <% else %>
@@ -35,3 +48,14 @@
     <% end %>
   </div>
 </div>
+
+<script>
+
+const logout = document.getElementById("avatar-dropdown");
+  logout.addEventListener("click", (event) => {
+    logout.innerHTML = `<%= link_to "LOGOUT", destroy_user_session_path, class: "link-item" %>"`;
+
+});
+
+</script>
+
