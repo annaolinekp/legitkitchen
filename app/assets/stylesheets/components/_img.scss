@@ -1,8 +1,15 @@
 
-// .recipe-img {
-//   img {
-//     width: 100%;
-//   // border-radius: 4px;
-//   }
+.recipe-img {
+  img {
+    width: 500px;
+    height: 100%;
+    border-radius: 4px;
+  }
+}
 
-// }
+.user-avatar {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  margin-right: 16px;
+}
