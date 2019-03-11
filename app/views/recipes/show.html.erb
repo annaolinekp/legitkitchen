@@ -18,15 +18,19 @@
             <% end %>
           <% end %>
         </div>
-        <i class="fas fa-comment-alt"></i>
+        <a href="" id="comment-btn" class="c-btn"> <i class="fas fa-comment-alt"></i> </a>
         <i class="fas fa-share-alt"></i>
+
       </div>
     </div>
 
     <div>
       <div class="comment-container">
-        <p id="counter"> <%= pluralize @recipe.comments.size, "comment" %> </p>
-        <div id="comments">
+          <p id="counter"> <%= pluralize @recipe.comments.size, "comment" %> </p>
+        <div id="all-comments">
+          <p>Show Comments</p>
+        </div>
+        <div id="comments" class="d-none">
           <% @recipe.comments.each do |comment| %>
             <div class="comment d-flex" id="comment-<%= comment.id %>">
               <div>
@@ -49,7 +53,7 @@
           <p>Be the first to leave a comment for <%= @recipe.name %></p>
         <% end %>
       </div>
-      <div>
+      <div class="form-container d-none">
         <%= render 'comments/form', recipe: @recipe, comment: @comment %>
       </div>
     </div>
@@ -93,8 +97,26 @@
     </div>
   </div>
 </div>
-<%= link_to 'Go back to all recipes', recipes_path, class: "link"%>
 
 <script>
+  const createComment = () => {
+    const form = document.querySelector('.form-container');
+    const btn = document.getElementById('comment-btn');
+    btn.addEventListener('click', (event) => {
+      event.preventDefault();
+      form.classList.toggle('d-none');
+    })
+  }
+
+  const displayComments = () => {
+    const comments = document.getElementById('comments');
+    const showComments = document.getElementById('all-comments');
+    showComments.addEventListener('click', (event) => {
+      event.preventDefault();
+      comments.classList.toggle('d-none');
+    })
+  }
+createComment();
+displayComments();
 
 </script>
