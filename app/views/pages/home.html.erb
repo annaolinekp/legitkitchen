@@ -10,8 +10,9 @@
     <div id="vmap" style="width: 600px; height: 400px;"></div>
   </div>
 </div>
-
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqvmap/1.5.1/jquery.vmap.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqvmap/1.5.1/maps/jquery.vmap.world.js"></script>
 <script type="text/javascript">
 
 var options = {
@@ -31,7 +32,11 @@ var options = {
     showTooltip: true,
     onRegionClick: function(element, code, region)
     {
-      var newPath = "localhost:3000" + "/countries";
+      <% @countries.each do |country| %>
+        if (region == '<%= country.name %>') {
+         window.location = 'http://localhost:3000/countries/' + '<%= country.id %>';
+        }
+      <% end %>
     }
 }
 
