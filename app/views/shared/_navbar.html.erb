@@ -21,11 +21,31 @@
     <% end %>
   </div>
 
-  <div class="navbar-nav">
+  <div class="navbar-nav" id="logout">
       <% if user_signed_in? %>
-      <div class="avatar">
+
+      <div class="avatar" id="avatar-dropdown">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
         <%= link_to user_path(current_user) do %>
-          <%= cl_image_tag current_user.profile_picture_url %>
+          <% if current_user.facebook_picture_url.present? %>
+            <% avatar_url = current_user.facebook_picture_url %>
+            <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% elsif current_user.profile_picture_url.file.present? %>
+              <%= cl_image_tag current_user.profile_picture_url, id: "navbar-wagon-menu" %>
+          <% end %>
+          <% else %>
+            <% avatar_url = "http://placehold.it/30x30" %>
+            <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% end %>
         <% end %>
       </div>
     <% else %>
@@ -35,3 +55,13 @@
     <% end %>
   </div>
 </div>
+
+<script>
+
+// const logout = document.getElementById("d-none");
+//   logout.addEventListener("click", (event) => {
+//     logout.removeAttribute("d-none");
+// });
+
+</script>
+
