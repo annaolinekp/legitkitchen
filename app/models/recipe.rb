@@ -1,7 +1,9 @@
 class Recipe < ApplicationRecord
   belongs_to :user
-  attr_accessor :amounts
   attr_accessor :ingredients
+  # validates :ingredients, presence: true, if: :amountsNotEmptyString?
+  attr_accessor :amounts
+  # validates :amounts, presence: true, if: :ingredientsNotEmptyString?
   has_many :comments
   has_many :quantities, dependent: :destroy
   has_many :saved_recipes, dependent: :destroy
@@ -14,6 +16,15 @@ class Recipe < ApplicationRecord
   validates :cooktime, presence: true
   validates :preptime, presence: true
   # validates :picture_url, presence: true
+
+  # def amountsNotEmptyString?
+  #   raise
+  #   amounts != nil ? true : false
+  # end
+
+  # def ingredientsNotEmptyString?
+  #   ingredients != nil ? true : false
+  # end
 
   mount_uploader :picture_url, PhotoUploader
   validates :dietary_requirements, presence: true
@@ -28,5 +39,4 @@ class Recipe < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-
 end

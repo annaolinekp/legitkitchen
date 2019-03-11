@@ -29,12 +29,26 @@ class RecipesController < ApplicationController
   def new
     @user = current_user
     @recipe = Recipe.new
+    @ingredients_matches_amounts = true
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
-    if @recipe.save
+    empty_ingredients = 0
+    empty_amounts = 0
+    ingredients_params.each do |key, value|
+      if value == ""
+        empty_ingredients +=  1
+      end
+    end
+    amounts_params.each do |key, value|
+      if value == ""
+        empty_amounts +=  1
+      end
+    end
+    @ingredients_matches_amounts = empty_ingredients == empty_amounts
+    if @recipe.save && @ingredients_matches_amounts
       ingredients_hash = ingredients_params
       amounts_hash = amounts_params
       quantity_array = []
@@ -46,11 +60,7 @@ class RecipesController < ApplicationController
         quantity_array.push(Quantity.new(quantity_hash))
       end
       quantity_array.each do |quantity|
-        if quantity.save
-          next
-        else
-          render 'new' and return
-        end
+        quantity.save
       end
       redirect_to recipe_path(@recipe)
     else
@@ -58,12 +68,26 @@ class RecipesController < ApplicationController
     end
   end
 
-  def edit
-    # @recipe.quantity = @quantity
-  end
+  # def edit
+  #   @recipe.quantity = @quantity
+  # end
 
   def update
-    if @recipe.update(recipe_params)
+    @recipe = Recipe.find(params[:id])
+    empty_ingredients = 0
+    empty_amounts = 0
+    ingredients_params.each do |key, value|
+      if value == ""
+        empty_ingredients +=  1
+      end
+    end
+    amounts_params.each do |key, value|
+      if value == ""
+        empty_amounts +=  1
+      end
+    end
+    @ingredients_matches_amounts = empty_ingredients == empty_amounts
+    if @ingredients_matches_amounts
       ingredients_hash = ingredients_params
       amounts_hash = amounts_params
       quantity_array = []
@@ -72,9 +96,14 @@ class RecipesController < ApplicationController
         quantity_hash = { ingredient_id: value,
                           description: amounts_hash["amount#{identity_num}"],
                           recipe_id: @recipe.id }
-        quantity_array.push(Quantity.update(quantity_hash))
+        quantity_array.push(Quantity.new(quantity_hash))
+      end
+      quantity_array.each do |quantity|
+        quantity.save
       end
       redirect_to recipe_path(@recipe)
+    else
+      render 'new'
     end
   end
 
