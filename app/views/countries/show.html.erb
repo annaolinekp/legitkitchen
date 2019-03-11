@@ -1,4 +1,64 @@
-<h1>Country recipes</h1>
-<%= @country.name %>
-<%= link_to "Go back to index", countries_path %>
+<div class="main-container">
+  <div class="filters-container">
+    <div class="filters">
+      <!-- <p>Filter by:</p> -->
+      <% if @search != "" %>
+        <p> <%= link_to 'Appetiser', recipes_path(search: @search, category: 'Appetiser') %> </p>
+        <p class="btn-filter"> <%= link_to 'Main', recipes_path(search: @search, category: 'Main')  %> </p>
+        <p class="btn-filter"> <%= link_to 'Dessert', recipes_path(search: @search, category: 'Dessert')  %></p>
+        <p class="btn-filter"> <%= link_to 'Drink', recipes_path(search: @search, category: 'Drink')  %></p>
+      <% else %>
+        <p> <%= link_to 'Appetiser', recipes_path(category: 'Appetiser'), class: "btn-filter" %> </p>
+        <p> <%= link_to 'Main', recipes_path(category: 'Main'), class: "btn-filter" %> </p>
+        <p> <%= link_to 'Dessert', recipes_path(category: 'Dessert'), class: "btn-filter" %></p>
+        <p> <%= link_to 'Drink', recipes_path(category: 'Drink'), class: "btn-filter" %></p>
+      <% end %>
+    </div>
+  </div>
 
+  <div class="title-container">
+    <h1><%= @country.name.upcase %> </h1>
+    <%= link_to "Go back to index", countries_path %>
+  </div>
+
+  <div class="main-container-index ">
+    <div class="container-flex">
+      <div class="card-container">
+        <% @country.recipes.each do |recipe| %>
+          <div class="recipe-card">
+            <%= cl_image_tag recipe.picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
+            <div class="info-card">
+              <h2><%= link_to recipe.name, recipe_path(recipe) %></h2>
+              <div>
+               <p><%= recipe.description.truncate(136) %></p>
+              </div>
+              <% if current_user %>
+                <% if current_user.id == recipe.user.id %>
+                  <div id="index-delete">
+                    <%= link_to recipe_path(recipe), method: :delete, data: { confirm: "Are you sure?" } do %>
+                    <i class="fa fa-trash destroy_recipe"></i>
+                    <% end %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="heart">
+              <div id="heart_container_<%= recipe.id %>" class="heart-container">
+                <% saved_recipe = SavedRecipe.find_by(user: current_user, recipe: recipe.id) %>
+                <% if saved_recipe %>
+                  <%= link_to saved_recipe_path(saved_recipe), method: :delete, remote: true  do %>
+                    <i id='heart_<%= recipe.id %>' class='fas fa-heart heart-icon' style='color: #5e9bb9;'></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to recipe_saved_recipes_path(recipe), method: :post, remote: true  do %>
+                    <i id="heart_<%= recipe.id %>" class="fas fa-heart heart-icon"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
