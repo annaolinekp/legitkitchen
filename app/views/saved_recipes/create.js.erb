@@ -2,6 +2,6 @@ heartContainer = document.getElementById("heart_container_<%= @recipe.id %>");
 document.getElementById("heart_<%= @recipe.id %>").remove();
 heartContainer.insertAdjacentHTML('beforeend',
   `<%= link_to saved_recipe_path(@saved_recipe), method: :delete, remote: true  do %>
-<i id='heart_<%= @recipe.id %>' class='fas fa-heart heart-icon' style='color: red;'></i>
+<i id='heart_<%= @recipe.id %>' class='fas fa-heart heart-icon' style='color:#5e9bb9;'></i>
 <% end %>`);
 

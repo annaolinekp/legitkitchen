@@ -4,9 +4,17 @@ class RecipesController < ApplicationController
 
   def index
     if params[:search].present?
-      @recipes = Recipe.search_by_name_and_description(params[:search])
+      @search = params[:search]
+    else
+      @search = ""
+    end
+    if params[:search].present? && params[:category].present?
+      @recipe = Recipe.filter(params.slice(:category))
+      @recipes = @recipe.search_by_name_and_description(params[:search])
     elsif params[:dietary_requirements].present? || params[:category].present?
       @recipes = Recipe.filter(params.slice(:category, :dietary_requirements))
+    elsif params[:search].present?
+      @recipes = Recipe.search_by_name_and_description(params[:search])
     else
       @recipes = Recipe.all
     end
