@@ -40,3 +40,22 @@
 .description {
   height: 200px;
 }
+.food-icons-left, .food-icons-rigth {
+  display: flex;
+  justify-content: center;
+}
+
+.food-icons-left {
+ padding-top: 40px;
+ padding-right:50px;
+}
+
+.food-icons-rigth {
+  padding-top: 40px;
+  padding-left:50px;
+}
+
+.add-btn {
+  color: $secondary-color;
+  margin-bottom: 16px;
+}
