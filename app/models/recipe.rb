@@ -35,7 +35,7 @@ class Recipe < ApplicationRecord
   # end
 
   mount_uploader :picture_url, PhotoUploader
-  validates :dietary_requirements, presence: true
+  # validates :dietary_requirements, presence: true
   include Filterable
   scope :dietary_requirements, -> (dietary_requirements) { where dietary_requirements: dietary_requirements }
   scope :category, -> (category) { where category: category }
