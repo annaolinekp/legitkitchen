@@ -1,7 +1,15 @@
 heartContainer = document.getElementById("heart_container_<%= @recipe.id %>");
-heartContainer.innerHTML = `<%= link_to recipe_saved_recipes_path(@recipe), method: :post, remote: true  do %>
+showContainer = document.getElementById("heart_container_<%= @recipe.id %>_show");
+if(heartContainer) {
+  heartContainer.innerHTML = `<%= link_to recipe_saved_recipes_path(@recipe), method: :post, remote: true  do %>
 <i id='heart_<%= @recipe.id %>' class='fas fa-heart heart-icon' style='color: white;'></i>
 <% end %>`;
+} else {
+  showContainer.innerHTML = `<%= link_to recipe_saved_recipes_path(@recipe), method: :post, remote: true  do %>
+<i id='heart_<%= @recipe.id %>' class='fas fa-heart' style='color:$main-color;'></i>
+<% end %>`;
+}
+
 
 
 
