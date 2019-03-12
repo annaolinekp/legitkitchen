@@ -11,3 +11,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :profile_picture_url, :country])
   end
 end
+
+def default_url_options
+  { host: ENV["www.letgitkichen.com"] || "localhost:3000" }
+end
