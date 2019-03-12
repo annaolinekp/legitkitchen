@@ -32,6 +32,17 @@ country_name = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antig
  "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen",
  "Zambia", "Zimbabwe"]
 
+puts 'Seeding countries...'
+# saved_country = []
+  100.times do
+    country = Country.new(
+      # name: (country_name - saved_country).sample
+      name: country_name.sample
+    )
+    country.save!
+    # saved_country << country
+  end
+
 puts 'Creating 10 fake users...'
 
 10.times do
@@ -40,18 +51,11 @@ puts 'Creating 10 fake users...'
     last_name: Faker::Name.unique.last_name,
     email: Faker::Internet.unique.email,
     password: "123456",
+    country: Country.first,
     # profile_picture_url: "res.cloudinary.com/do6brpyuo/image/upload/v1551872540/lism2u71mmxu0ichi4bw.jpg"
   )
   user.save!
 end
-
-puts 'Seeding countries...'
-  50.times do
-    country = Country.new(
-      name: country_name.sample
-    )
-    country.save!
-  end
 
 puts 'Creating 30 fake ingredients...'
     30.times do
