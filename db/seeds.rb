@@ -33,14 +33,11 @@ country_name = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antig
  "Zambia", "Zimbabwe"]
 
 puts 'Seeding countries...'
-# saved_country = []
-  100.times do
+  150.times do
     country = Country.new(
-      # name: (country_name - saved_country).sample
-      name: country_name.sample
+      name: country_name.delete(country_name.sample)
     )
     country.save!
-    # saved_country << country
   end
 
 puts 'Creating 10 fake users...'
