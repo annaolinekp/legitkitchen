@@ -27,6 +27,10 @@
   color: white;
   border-radius: 4px;
   background: #ffa783;
+  &:hover{
+    background-color: $secondary-color;
+    color: white;
+  }
 }
 
 .login-form {

@@ -7,15 +7,15 @@
   </div>
 
   <div class="form-inputs">
-    <%= f.input :description, label: "Add Method", placeholder: "e.g. Step 1: To make the dough, combine the flour, baking powder and salt in a bowl..." %>
+    <%= f.input :description, as: :text, input_html: { rows: 10 }, label: "Add Method", placeholder: "e.g. Step 1: To make the dough, combine the flour, baking powder and salt in a bowl..." %>
   </div>
 
   <div class="form-inputs">
-    <%= f.input :preptime, placeholder: "e.g. 20min"%>
+    <%= f.input :preptime, label: "Preptime in min", placeholder: "e.g. 20"%>
   </div>
 
   <div class="form-inputs">
-    <%= f.input :cooktime, placeholder: "e.g. 15min" %>
+    <%= f.input :cooktime, label: "Preptime in min",placeholder: "e.g. 15" %>
   </div>
 
   <div class="form-inputs">
@@ -53,9 +53,11 @@
     <% end %>
   </div>
 
-  <a id="new-ingredient-btn">Add new ingredient</a>
+  <div class="add-btn">
+    <a id="new-ingredient-btn">Add new ingredient</a>
+  </div>
 
-  <div class="form-actions">
+  <div class="form-actions btn">
     <%= f.button :submit, label: "Submit Form" %>
   </div>
 <% end %>
