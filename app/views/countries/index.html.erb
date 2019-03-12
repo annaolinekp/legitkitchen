@@ -1,8 +1,11 @@
 <div class="main-container" id="country-index-main">
   <div class="sub-container" id="country-index">
     <div class="country-container">
-      <% @countries.each do |country| %>
-        <ul> <%= link_to country.name, country_path(country) %> </ul>
+
+      <% @countries_sorted = @countries.sort { |c1, c2| c1.name <=> c2.name } %>
+
+      <% @countries_sorted.each do |c| %>
+        <ul> <%= link_to c.name, country_path(c) %> </ul>
       <% end %>
     </div>
   </div>
