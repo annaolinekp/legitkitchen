@@ -4,7 +4,7 @@
       <div class="food-picture1">
         <%= image_tag "food-banner1.png" %>
       </div>
-      <div class="col-6 justify-content-center">
+      <div class="col-6 justify-content-center align-items-center">
         <div class="col-login">
           <div class="login-form">
             <h2>LOG IN</h2>
@@ -23,7 +23,7 @@
               </div>
 
               <div class="form-actions btn">
-                <%= f.button :submit, "Log in" %>
+                <%= f.button :submit, "Log in", class: "login-btn"%>
               </div>
             <% end %>
 

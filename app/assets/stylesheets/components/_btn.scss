@@ -1,7 +1,6 @@
 
 .btn-filter {
   color: white;
-  // border: 1px solid $secondary-color;
   // padding: 5px 30px;
   // border-radius: 8px;
   // font-weight: lighter;
@@ -10,7 +9,6 @@
   margin: 0 80px;
    &:hover {
     text-decoration: none;
-    color: $secondary-color;
    }
 }
 
@@ -24,5 +22,12 @@
   color: $main-color;
   &:hover{
     color: $main-color;
+  }
+}
+
+.login-btn {
+  padding: 8px;
+  &:hover {
+    color: white;
   }
 }
