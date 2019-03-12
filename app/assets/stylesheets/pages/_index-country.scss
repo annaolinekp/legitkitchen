@@ -1,0 +1,27 @@
+#country-index {
+  padding-top: 30px;
+}
+
+#country-index {
+  // display: inline-block
+}
+
+#country-index a {
+  color: #ffa783
+}
+
+#country-index a:hover {
+  color: #ffa783
+}
+
+#single-countries {
+  display: inline-block;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  border-color: #ffa783;
+  vertical-align: middle;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
