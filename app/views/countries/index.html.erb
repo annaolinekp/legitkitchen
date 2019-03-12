@@ -4,7 +4,7 @@
       <% @countries_sorted = @countries.sort { |c1, c2| c1.name <=> c2.name } %>
       <% @countries_sorted.each do |c| %>
         <div id="single-countries">
-          <%= link_to c.name, country_path(c) %>
+          <%= link_to c.name, country_path(c, country: c.name) %>
         </div>
       <% end %>
     </div>

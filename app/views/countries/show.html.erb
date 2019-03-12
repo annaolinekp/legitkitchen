@@ -3,15 +3,15 @@
     <div class="filters" id="country-show">
       <!-- <p>Filter by:</p> -->
       <% if @search != "" %>
-        <p> <%= link_to 'Appetiser', recipes_path(search: @search, category: 'Appetiser') %> </p>
-        <p class="btn-filter"> <%= link_to 'Main', recipes_path(search: @search, category: 'Main')  %> </p>
-        <p class="btn-filter"> <%= link_to 'Dessert', recipes_path(search: @search, category: 'Dessert')  %></p>
-        <p class="btn-filter"> <%= link_to 'Drink', recipes_path(search: @search, category: 'Drink')  %></p>
+        <p> <%= link_to 'Appetiser', recipes_path(search: @search, category: 'Appetiser', country: @country.name) %> </p>
+        <p class="btn-filter"> <%= link_to 'Main', recipes_path(search: @search, category: 'Main', country: @country.name)  %> </p>
+        <p class="btn-filter"> <%= link_to 'Dessert', recipes_path(search: @search, category: 'Dessert', country: @country.name)  %></p>
+        <p class="btn-filter"> <%= link_to 'Drink', recipes_path(search: @search, category: 'Drink', country: @country.name)  %></p>
       <% else %>
-        <p> <%= link_to 'Appetiser', recipes_path(category: 'Appetiser'), class: "btn-filter" %> </p>
-        <p> <%= link_to 'Main', recipes_path(category: 'Main'), class: "btn-filter" %> </p>
-        <p> <%= link_to 'Dessert', recipes_path(category: 'Dessert'), class: "btn-filter" %></p>
-        <p> <%= link_to 'Drink', recipes_path(category: 'Drink'), class: "btn-filter" %></p>
+        <p> <%= link_to 'Appetiser', recipes_path(category: 'Appetiser', country: @country.name), class: "btn-filter" %> </p>
+        <p> <%= link_to 'Main', recipes_path(category: 'Main', country: @country.name), class: "btn-filter" %> </p>
+        <p> <%= link_to 'Dessert', recipes_path(category: 'Dessert', country: @country.name), class: "btn-filter" %></p>
+        <p> <%= link_to 'Drink', recipes_path(category: 'Drink', country: @country.name), class: "btn-filter" %></p>
       <% end %>
     </div>
   </div>

@@ -8,7 +8,12 @@ class RecipesController < ApplicationController
     else
       @search = ""
     end
-    if params[:search].present? && params[:category].present?
+    if params[:search].present? && params[:category].present? && params[:country].present?
+      @recipe = Recipe.filter(params.slice(:country, :category))
+      @recipes = @recipe.search_by_name_and_description(params[:search])
+    elsif params[:category].present? && params[:country].present?
+      @recipes = Recipe.where(category: params[:category]).select {|recipe| recipe.country_name == params[:country]}
+    elsif params[:search].present? && params[:category].present?
       @recipe = Recipe.filter(params.slice(:category))
       @recipes = @recipe.search_by_name_and_description(params[:search])
     elsif params[:dietary_requirements].present? || params[:category].present?

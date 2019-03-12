@@ -16,7 +16,13 @@ class Recipe < ApplicationRecord
   validates :cooktime, presence: true
   validates :preptime, presence: true
   # validates :picture_url, presence: true
-
+  def country_name
+    if self.country.nil?
+      ""
+    else
+      country.name
+    end
+  end
   # def amountsNotEmptyString?
   #   raise
   #   amounts != nil ? true : false
@@ -31,6 +37,7 @@ class Recipe < ApplicationRecord
   include Filterable
   scope :dietary_requirements, -> (dietary_requirements) { where dietary_requirements: dietary_requirements }
   scope :category, -> (category) { where category: category }
+  scope :country, -> (country) { where country_name: country }
 
   # scope :size, -> (size) { where size: size }
   include PgSearch
