@@ -31,7 +31,10 @@
       <div class="comment-container">
           <p id="counter"> <%= pluralize @recipe.comments.size, "comment" %> </p>
         <div id="all-comments">
-          <p>Show Comments</p>
+          <p>Show all comments</p>
+        </div>
+        <div class="form-container d-none">
+          <%= render 'comments/form', recipe: @recipe, comment: @comment %>
         </div>
         <div id="comments" class="d-none comments-list">
           <% @recipe.comments.each do |comment| %>
@@ -39,14 +42,10 @@
           <% end %>
         </div>
       </div>
-      <div>
-        <% if @recipe.comments.empty? %>
-          <p>Be the first to leave a comment for <%= @recipe.name %></p>
-        <% end %>
-      </div>
-      <div class="form-container d-none">
-        <%= render 'comments/form', recipe: @recipe, comment: @comment %>
-      </div>
+       <!--   put back er
+       if @recipe.comments.empty?
+          <p>Be the first to leave a comment for  @recipe.name </p>
+       end  -->
     </div>
   </div>
 
