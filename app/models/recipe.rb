@@ -15,6 +15,7 @@ class Recipe < ApplicationRecord
   validates :category, presence: true
   validates :cooktime, presence: true
   validates :preptime, presence: true
+
   # validates :picture_url, presence: true
   def country_name
     if self.country.nil?
@@ -23,6 +24,7 @@ class Recipe < ApplicationRecord
       country.name
     end
   end
+
   # def amountsNotEmptyString?
   #   raise
   #   amounts != nil ? true : false
