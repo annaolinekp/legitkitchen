@@ -1,6 +1,6 @@
 <div class="main-container">
   <div class="filters-container">
-    <div class="filters">
+    <div class="filters" id="country-show">
       <!-- <p>Filter by:</p> -->
       <% if @search != "" %>
         <p> <%= link_to 'Appetiser', recipes_path(search: @search, category: 'Appetiser') %> </p>
@@ -16,9 +16,8 @@
     </div>
   </div>
 
-  <div class="title-container">
+  <div class="sub-container">
     <h1><%= @country.name.upcase %> </h1>
-    <%= link_to "Go back to index", countries_path %>
   </div>
 
   <div class="main-container-index ">
