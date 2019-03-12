@@ -16,11 +16,11 @@
     </div>
   </div>
 
-  <div class="sub-container">
+  <div class="sub-container" id="title-country-show">
     <h1><%= @country.name.upcase %> </h1>
   </div>
 
-  <div class="main-container-index ">
+  <div class="main-container-index">
     <div class="container-flex">
       <div class="card-container">
         <% @country.recipes.each do |recipe| %>
