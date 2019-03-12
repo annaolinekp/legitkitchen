@@ -24,7 +24,7 @@
           <div class="info-card">
             <h2><%= link_to recipe.name, recipe_path(recipe) %></h2>
             <div>
-             <p><%= recipe.description.truncate(136) %></p>
+             <p><%= recipe.description.truncate(100) %></p>
             </div>
             <% if current_user %>
               <% if current_user.id == recipe.user.id %>

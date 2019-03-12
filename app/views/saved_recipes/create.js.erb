@@ -1,4 +1,12 @@
 heartContainer = document.getElementById("heart_container_<%= @recipe.id %>");
-heartContainer.innerHTML = `<%= link_to saved_recipe_path(@saved_recipe), method: :delete, remote: true  do %>
+showContainer = document.getElementById("heart_container_<%= @recipe.id %>_show");
+if(heartContainer) {
+  heartContainer.innerHTML = `<%= link_to saved_recipe_path(@saved_recipe), method: :delete, remote: true  do %>
 <i id='heart_<%= @recipe.id %>' class='fas fa-heart heart-icon' style='color:#5e9bb9;'></i>
 <% end %>`;
+} else {
+  showContainer.innerHTML = `<%= link_to saved_recipe_path(@saved_recipe), method: :delete, remote: true  do %>
+<i id='heart_<%= @recipe.id %>' class='fas fa-heart' style='color:#5e9bb9;'></i>
+<% end %>`;
+}
+
