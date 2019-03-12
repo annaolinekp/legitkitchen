@@ -1,9 +1,6 @@
-<div class="main-container">
-  <div class="sub-container">
-    <h1>Countries</h1>
-  </div>
-  <div class="sub-container">
-    <div class="card-container">
+<div class="main-container" id="country-index-main">
+  <div class="sub-container" id="country-index">
+    <div class="country-container">
       <% @countries.each do |country| %>
         <ul> <%= link_to country.name, country_path(country) %> </ul>
       <% end %>

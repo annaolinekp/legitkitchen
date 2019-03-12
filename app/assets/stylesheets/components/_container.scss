@@ -43,3 +43,11 @@
   padding-top: 8px;
   // padding-bottom: 4px;
 }
+
+.country-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  flex-grow: 1;
+  grid-gap:70px;
+  margin: 0 40px;
+}
