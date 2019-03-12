@@ -1,5 +1,7 @@
 .login-container {
-  text-align: center
+  display: flex;
+  align-items: center;
+  // text-align: center
 }
 
 .col-login {
@@ -13,24 +15,20 @@
   height: 500px;
   padding-top: 30px;
   text-align: center;
-  width: 400px !important;
+  width: 700px !important;
   flex: 0 0 25% !important;
   display: inline-block;
 }
 
-.links {
-  margin-top: 30px;
-}
+// .links {
+//   margin-top: 30px;
+// }
 
 .btn {
   padding: 2px 4px;
   color: white;
   border-radius: 4px;
   background: #ffa783;
-  &:hover{
-    background-color: $secondary-color;
-    color: white;
-  }
 }
 
 .login-form {
@@ -45,12 +43,20 @@
   height: 600px;
 }
 
-.links {
-  padding: 24px 4px;
-}
+// .links {
+//   padding: 24px 4px;
+// }
 
 .login-form h2 {
   text-align: center;
   padding-top: 10px;
   font-style: bolder;
+}
+
+.sign-up {
+  padding-left: 10px;
+}
+
+.forgot-link {
+  margin: 0;
 }
