@@ -1,88 +1,97 @@
 <div class="main-recipe-container">
+ <div class="recipe-title">
 
-  <div class="container-left">
-    <div class="image-card">
-      <h1> <%= @recipe.name %> </h1>
-      <div class="recipe-img">
-        <%= cl_image_tag @recipe.picture_url, width: 640, height: 420, dpr: 3.0, crop: :fill %>
+  <h1> <%= @recipe.name %> </h1>
+ </div>
+  <div class="d-flex">
+    <div class="container-left">
+      <div>
+        <p class="r-info"><span>PREPTIME : <%= @recipe.preptime %> min </span> COOKTIME : <%= @recipe.cooktime %> min </p>
       </div>
-      <div class="footer-banner d-flex">
-        <div>
-          <div id="heart_container_<%= @recipe.id %>_show">
-            <% saved_recipe = SavedRecipe.find_by(user: current_user, recipe: @recipe.id) %>
-            <% if saved_recipe %>
-              <%= link_to saved_recipe_path(saved_recipe), method: :delete, remote: true  do %>
-                <i id='heart_<%= @recipe.id %>' class='fas fa-heart' style='color: #5e9bb9;'></i>
+      <div class="image-card">
+        <div class="recipe-img">
+          <%= cl_image_tag @recipe.picture_url, width: 640, height: 420, dpr: 3.0, crop: :fill %>
+        </div>
+        <div class="footer-banner d-flex">
+          <div>
+            <div id="heart_container_<%= @recipe.id %>_show">
+              <% saved_recipe = SavedRecipe.find_by(user: current_user, recipe: @recipe.id) %>
+              <% if saved_recipe %>
+                <%= link_to saved_recipe_path(saved_recipe), method: :delete, remote: true  do %>
+                  <i id='heart_<%= @recipe.id %>' class='fas fa-heart' style='color: #5e9bb9;'></i>
+                <% end %>
+              <% else %>
+                <%= link_to recipe_saved_recipes_path(@recipe), method: :post, remote: true  do %>
+                  <i id="heart_<%= @recipe.id %>" class="fas fa-heart"></i>
+                <% end %>
               <% end %>
-            <% else %>
-              <%= link_to recipe_saved_recipes_path(@recipe), method: :post, remote: true  do %>
-                <i id="heart_<%= @recipe.id %>" class="fas fa-heart"></i>
-              <% end %>
+            </div>
+          </div>
+          <a href="" id="comment-btn" class="c-btn"> <i class="fas fa-comment-alt"></i> </a>
+          <i class="fas fa-share-alt"></i>
+          <!-- <div>
+            <p class="r-info"><span>PREPTIME : <%= @recipe.preptime %> min </span> COOKTIME : <%= @recipe.cooktime %> min </p>
+          </div> -->
+
+        </div>
+      </div>
+
+      <div>
+        <div class="comment-container">
+            <p id="counter"> <%= pluralize @recipe.comments.size, "comment" %> </p>
+          <div id="all-comments">
+            <p>Show all comments</p>
+          </div>
+          <div class="form-container d-none">
+            <%= render 'comments/form', recipe: @recipe, comment: @comment %>
+          </div>
+          <div id="comments" class="d-none comments-list">
+            <% @recipe.comments.each do |comment| %>
+              <%= render "comments/show", comment: comment %>
             <% end %>
           </div>
         </div>
-        <a href="" id="comment-btn" class="c-btn"> <i class="fas fa-comment-alt"></i> </a>
-        <i class="fas fa-share-alt"></i>
-
+         <!--   put back er
+         if @recipe.comments.empty?
+            <p>Be the first to leave a comment for  @recipe.name </p>
+         end  -->
       </div>
     </div>
 
-    <div>
-      <div class="comment-container">
-          <p id="counter"> <%= pluralize @recipe.comments.size, "comment" %> </p>
-        <div id="all-comments">
-          <p>Show all comments</p>
-        </div>
-        <div class="form-container d-none">
-          <%= render 'comments/form', recipe: @recipe, comment: @comment %>
-        </div>
-        <div id="comments" class="d-none comments-list">
-          <% @recipe.comments.each do |comment| %>
-            <%= render "comments/show", comment: comment %>
-          <% end %>
-        </div>
-      </div>
-       <!--   put back er
-       if @recipe.comments.empty?
-          <p>Be the first to leave a comment for  @recipe.name </p>
-       end  -->
-    </div>
-  </div>
-
-  <div class="recipe-info-container">
-
-    <div class="ingredient-main-container">
-      <h3>Ingredients</h3>
-      <div class="ingredient-column">
-        <div class="wrap-ingredients">
-          <% @recipe.quantities.each do |quantity|%>
-            <div class="ingredient-amount">
-              <p> <%= quantity.description %> <%= quantity.ingredient.name %> </p>
-              <div>
-                <% if @recipe.user == current_user%>
-                  <%= link_to quantity_path(quantity), method: :delete, class: "link" do %>
-                  <i class="far fa-trash-alt"></i>
+    <div class="recipe-info-container">
+      <div class="ingredient-main-container">
+        <h3>Ingredients</h3>
+        <div class="ingredient-column">
+          <div class="wrap-ingredients">
+            <% @recipe.quantities.each do |quantity|%>
+              <div class="ingredient-amount">
+                <p> <%= quantity.description %> <%= quantity.ingredient.name %> </p>
+                <div>
+                  <% if @recipe.user == current_user%>
+                    <%= link_to quantity_path(quantity), method: :delete, class: "link" do %>
+                    <i class="far fa-trash-alt"></i>
+                    <% end %>
                   <% end %>
-                <% end %>
+                </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
+
+          <!-- <div class="r-info">
+            <p> PREPTIME : <%= @recipe.preptime %> min </p>
+            <p> COOKTIME : <%= @recipe.cooktime %> min </p>
+            <p> SERVINGS : </p> -->
+          <!--   <p> <%= @recipe.category %> </p>
+              <p> <%= @recipe.dietary_requirements%> </p> -->
+        <!--   </div> -->
         </div>
 
-        <div class="r-info">
-          <p> PREPTIME : <%= @recipe.preptime %> min </p>
-          <p> COOKTIME : <%= @recipe.cooktime %> min </p>
-          <p> SERVINGS : </p>
-        <!--   <p> <%= @recipe.category %> </p>
-            <p> <%= @recipe.dietary_requirements%> </p> -->
-        </div>
       </div>
-
-    </div>
-    <div class="method-container">
-      <h3>Method</h3>
-      <div class="method">
-        <p><%= @recipe.description %></p>
+      <div class="method-container">
+        <h3>Method</h3>
+        <div class="method">
+          <p><%= @recipe.description %></p>
+        </div>
       </div>
     </div>
   </div>
