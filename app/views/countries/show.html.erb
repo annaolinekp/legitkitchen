@@ -3,15 +3,31 @@
     <div class="filters" id="country-show">
       <!-- <p>Filter by:</p> -->
       <% if @search != "" %>
-        <p> <%= link_to 'Appetiser', recipes_path(search: @search, category: 'Appetiser', country: @country.name) %> </p>
-        <p class="btn-filter"> <%= link_to 'Main', recipes_path(search: @search, category: 'Main', country: @country.name)  %> </p>
-        <p class="btn-filter"> <%= link_to 'Dessert', recipes_path(search: @search, category: 'Dessert', country: @country.name)  %></p>
-        <p class="btn-filter"> <%= link_to 'Drink', recipes_path(search: @search, category: 'Drink', country: @country.name)  %></p>
+        <%= link_to recipes_path(search: @search, category: 'Appetiser', country: @country.name) do %>
+          <button type="button" class="btn btn-light" id="filter-btn"> Appetiser </button>
+        <% end %>
+        <%= link_to recipes_path(search: @search, category: 'Main', country: @country.name) do %>
+          <button type="button" class="btn btn-light" id="filter-btn"> Main </button>
+        <% end %>
+        <%= link_to recipes_path(search: @search, category: 'Dessert', country: @country.name) do %>
+          <button type="button" class="btn btn-light" id="filter-btn"> Dessert </button>
+        <% end %>
+        <%= link_to recipes_path(search: @search, category: 'Drink', country: @country.name) do %>
+          <button type="button" class="btn btn-light" id="filter-btn"> Drink </button>
+        <% end %>
       <% else %>
-        <p> <%= link_to 'Appetiser', recipes_path(category: 'Appetiser', country: @country.name), class: "btn-filter" %> </p>
-        <p> <%= link_to 'Main', recipes_path(category: 'Main', country: @country.name), class: "btn-filter" %> </p>
-        <p> <%= link_to 'Dessert', recipes_path(category: 'Dessert', country: @country.name), class: "btn-filter" %></p>
-        <p> <%= link_to 'Drink', recipes_path(category: 'Drink', country: @country.name), class: "btn-filter" %></p>
+        <%= link_to recipes_path(category: 'Appetiser', country: @country.name), class: "btn-filter" do %>
+          <button type="button" class="btn btn-light" id="filter-btn"> Appetiser </button>
+        <% end %>
+        <%= link_to recipes_path(category: 'Main', country: @country.name), class: "btn-filter" do %>
+          <button type="button" class="btn btn-light" id="filter-btn"> Main </button>
+        <% end %>
+        <%= link_to recipes_path(category: 'Dessert', country: @country.name), class: "btn-filter" do %>
+          <button type="button" class="btn btn-light" id="filter-btn"> Dessert </button>
+        <% end %>
+        <%= link_to recipes_path(category: 'Drink', country: @country.name), class: "btn-filter" do %>
+          <button type="button" class="btn btn-light" id="filter-btn"> Drink </button>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -25,21 +41,15 @@
       <div class="card-container">
         <% @country.recipes.each do |recipe| %>
           <div class="recipe-card">
+            <div class="country-strip">
+              <%= recipe.user.country.name.upcase %>
+            </div>
             <%= cl_image_tag recipe.picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
             <div class="info-card">
               <h2><%= link_to recipe.name, recipe_path(recipe) %></h2>
               <div>
                <p><%= recipe.description.truncate(136) %></p>
               </div>
-              <% if current_user %>
-                <% if current_user.id == recipe.user.id %>
-                  <div id="index-delete">
-                    <%= link_to recipe_path(recipe), method: :delete, data: { confirm: "Are you sure?" } do %>
-                    <i class="fa fa-trash destroy_recipe"></i>
-                    <% end %>
-                  </div>
-                <% end %>
-              <% end %>
             </div>
             <div class="heart2">
               <div id="heart_container_<%= recipe.id %>" class="heart-container">
