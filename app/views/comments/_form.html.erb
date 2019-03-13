@@ -1,4 +1,6 @@
-<%= simple_form_for([recipe, comment], remote: true) do |f| %>
-  <%= f.input :content%>
-  <%= f.submit class: "lg-button"%>
-<% end %>
+<div id="comment-form">
+  <%= simple_form_for([recipe, comment], remote: true) do |f| %>
+    <%= f.input :content%>
+    <%= f.submit class: "lg-button", id: "submit"%>
+  <% end %>
+</div>
