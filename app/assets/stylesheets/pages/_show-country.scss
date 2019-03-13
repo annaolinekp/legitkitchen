@@ -9,3 +9,24 @@
 #title-country-show {
   padding-top: 10px;
 }
+
+
+.heart2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 18px;
+    width: 100%;
+    background: green;
+    background: linear-gradient(0deg, #ffa783 20%, #ffa783 50%);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+.heart-icon-show {
+  position: absolute;
+  bottom: 4px;
+  color: white;
+  font-size: 12px;
+}
