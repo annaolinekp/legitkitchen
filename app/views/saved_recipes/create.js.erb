@@ -6,7 +6,7 @@ if(heartContainer) {
 <% end %>`;
 } else {
   showContainer.innerHTML = `<%= link_to saved_recipe_path(@saved_recipe), method: :delete, remote: true  do %>
-<i id='heart_<%= @recipe.id %>' class='fas fa-heart' style='color:#5e9bb9;'></i>
+<i id='heart_<%= @recipe.id %>' class='fas fa-heart heart-icon-show' style='color:#5e9bb9;'></i>
 <% end %>`;
 }
 
