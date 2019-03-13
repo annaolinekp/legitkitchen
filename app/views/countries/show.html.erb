@@ -45,10 +45,10 @@
               <%= recipe.user.country.name.upcase %>
             </div>
             <%= cl_image_tag recipe.picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
-            <div class="info-card">
+            <div class="info-card-index">
               <h2><%= link_to recipe.name, recipe_path(recipe) %></h2>
               <div>
-               <p><%= recipe.description.truncate(136) %></p>
+               <p><%= recipe.short_description%></p>
               </div>
             </div>
             <div class="heart2">
@@ -56,11 +56,11 @@
                 <% saved_recipe = SavedRecipe.find_by(user: current_user, recipe: recipe.id) %>
                 <% if saved_recipe %>
                   <%= link_to saved_recipe_path(saved_recipe), method: :delete, remote: true  do %>
-                    <i id='heart_<%= recipe.id %>' class='fas fa-heart heart-icon-show' style='color: #5e9bb9;'></i>
+                    <i id='heart_<%= recipe.id %>' class="fas fa-heart heart-icon-show"></i>
                   <% end %>
                 <% else %>
                   <%= link_to recipe_saved_recipes_path(recipe), method: :post, remote: true  do %>
-                    <i id="heart_<%= recipe.id %>" class="fas fa-heart heart-icon-show"></i>
+                    <i id="heart_<%= recipe.id %>" class="far fa-heart heart-icon-show"></i>
                   <% end %>
                 <% end %>
               </div>
