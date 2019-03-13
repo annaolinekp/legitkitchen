@@ -9,25 +9,75 @@
 }
 
 .recipe-card-user img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   object-fit: cover;
-  height: 70%;
-  width: 150px !important;
+  height: 85%;
+  width: 160px;
 }
 
-.recipe-card-user {
+.recipe-card-favourite img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+  height: 85%;
+  width: 160px;
+}
+
+.recipe-card-favourite .country-strip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: $main-color;
+  height:20px;
+  position:absolute;
+  width:100%;
   text-align: center;
-  margin: 20px;
-  width: 150px;
-  height: 200px;
-  box-shadow: 4px 2px 41px -9px rgba(171,168,171,0.86);
-  border-radius: 4px;
+  p {
+    font-size:12px;
+    color:white;
+    font-weight: bold;
+  }
 }
 
-.recipe-card-favourite {
-  width: 150px;
-  height: 200px;
+.recipe-card-user .country-strip {
+  background-color: $main-color;
+  height:20px;
+  position:absolute;
+  width:100%;
+  text-align: center;
+  p {
+    font-size:12px;
+    color:white;
+    font-weight: bold;
+  }
+}
+
+.carousel .recipe-card-user {
+  border-radius: 10px;
+  text-align: center;
+  margin: 10px;
+  width: 160px;
+  height: 180px;
   box-shadow: 4px 2px 41px -9px rgba(171,168,171,0.86);
   border-radius: 4px;
+  position: relative;
+  display: inline-block;
+}
+
+.carousel .recipe-card-favourite {
+  border-radius: 10px;
+  text-align: center;
+  margin: 10px;
+  width: 160px;
+  height: 180px;
+  box-shadow: 4px 2px 41px -9px rgba(171,168,171,0.86);
+  border-radius: 4px;
+  position: relative;
+  display: inline-block;
 }
 
 .user-info {
@@ -35,7 +85,8 @@
 }
 
 .user-info .user_show_avatar {
-  padding-left: 30px;
+  padding-left: 50px;
+  padding-bottom: 20px;
 }
 
 #user-name {
@@ -62,12 +113,12 @@
 
 .carousel-control-next-icon {
   background-color: #ffa783;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 .carousel-control-prev-icon {
   background-color: #ffa783;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 #create-recipe-link {
@@ -76,8 +127,8 @@
 
 #create {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  padding-left: 510px;
 }
 
 #my-recipes {
@@ -107,13 +158,6 @@
 }
 
 #create-recipe-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#create-recipe-link {
-  padding-left: 550px;
 }
 
 #user-show h1 {
@@ -124,7 +168,7 @@
 #user-show h2 {
   font-size: 24px;
   text-align: left;
-  padding-left: 30px;
+  padding-left: 55px;
   padding-top: 20px;
 }
 
@@ -134,4 +178,18 @@
 
 #user-show a:hover {
   color: #ffa783
+}
+
+#delete-svg {
+  cursor: pointer;
+  position: absolute;
+  top: 1%;
+  right: 3%;
+}
+
+#delete-svg .fas {
+  font-size: 12px;
+  padding: 3px 4px 2px 4px;
+  background-color: white;
+  border-radius: 50%;
 }
