@@ -23,8 +23,7 @@
       <% @recipes.each do |recipe| %>
         <div class="recipe-card">
           <div class="country-strip">
-            <!-- % recipe.user.country.name %> -->
-            <p> Country Name </p>
+            <%= recipe.user.country.name.upcase %>
           </div>
           <%= cl_image_tag recipe.picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
           <div class="info-card">
@@ -32,15 +31,6 @@
             <div>
              <p><%= recipe.description.truncate(100)%></p>
             </div>
-            <% if current_user %>
-              <% if current_user.id == recipe.user.id %>
-                <div id="index-delete">
-                  <%= link_to recipe_path(recipe), method: :delete, data: { confirm: "Are you sure?" } do %>
-                  <i class="fa fa-trash destroy_recipe"></i>
-                  <% end %>
-                </div>
-              <% end %>
-            <% end %>
           </div>
           <div class="heart2">
             <div id="heart_container_<%= recipe.id %>" class="heart-container">
