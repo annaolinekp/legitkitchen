@@ -21,7 +21,7 @@
                 <% end %>
               <% else %>
                 <%= link_to recipe_saved_recipes_path(@recipe), method: :post, remote: true  do %>
-                  <i id="heart_<%= @recipe.id %>" class="fas fa-heart"></i>
+                  <i id="heart_<%= @recipe.id %>" class="far fa-heart"></i>
                 <% end %>
               <% end %>
             </div>
