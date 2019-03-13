@@ -20,9 +20,14 @@
   text-align: center;
 }
 
-.make-recipe h1 {
+.make-recipe {
+  display: flex;
+  justify-content: center;
+
+  h1 {
   padding-top: 30px;
   text-align: center;
+  }
 }
 
 .make-recipe a {
@@ -57,4 +62,5 @@
 
 .add-btn {
   margin-bottom: 16px;
+  color: $main-color;
 }
