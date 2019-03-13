@@ -64,3 +64,15 @@
   margin-bottom: 16px;
   color: $main-color;
 }
+
+.btn-create {
+    background-color: $main-color;
+    // border-color: #FFA783;
+    padding: 5px 10px 5px 10px;
+    color: white;
+    width: 100%;
+    // border-radius: 40px;
+    &:hover {
+      color: white;
+    }
+}
