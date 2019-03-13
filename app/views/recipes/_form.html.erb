@@ -46,7 +46,7 @@
 
   <div class="form-inputs">
     <%= f.simple_fields_for "ingredients" do |i| %>
-      <%= i.input "ingredient_id0", collection: Ingredient.all, label: "Ingredient"  %>
+      <%= i.input "ingredient_id0", collection: Ingredient.all, label: "Ingredient", input_html: { class: 'select2' }  %>
     <% end %>
   </div>
 
