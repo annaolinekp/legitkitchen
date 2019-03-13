@@ -8,10 +8,15 @@
         <h3 id="user-name"> <%= @user.first_name.upcase %> </h3>
         <p id="country-name"> <%= link_to @user.country.name.upcase, country_path(@user.country) %> </p>
       </div>
-      <div id="create">
-        <%= link_to new_recipe_path do  %>
-          <button type="button" class="btn btn-light" id="user-btn"> + Create a new recipe</button>
-        <% end %>
+      <div class="blurb-and-create">
+        <div class="blurb">
+          "<%= @user.blurb %>"
+        </div>
+        <div id="create">
+          <%= link_to new_recipe_path do  %>
+            <button type="button" class="btn btn-light" id="user-btn"> + Create a new recipe</button>
+          <% end %>
+        </div>
       </div>
     </div>
 

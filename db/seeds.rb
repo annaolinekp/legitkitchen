@@ -49,6 +49,7 @@ puts 'Creating 10 fake users...'
     email: Faker::Internet.unique.email,
     password: "123456",
     country: Country.first,
+    blurb: "I love to cook!"
     # profile_picture_url: "res.cloudinary.com/do6brpyuo/image/upload/v1551872540/lism2u71mmxu0ichi4bw.jpg"
   )
   user.save!
