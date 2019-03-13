@@ -74,6 +74,18 @@
   display: flex;
 }
 
+.blurb-and-create {
+  display: flex;
+  justify-content: center;
+}
+
+.blurb {
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  font-style: italic;
+}
+
 .user-info .user_show_avatar {
   padding-left: 50px;
   padding-bottom: 20px;
@@ -118,7 +130,7 @@
 #create {
   display: flex;
   align-items: center;
-  padding-left: 510px;
+  padding-left: 80px;
 }
 
 #my-recipes {
@@ -145,9 +157,6 @@
 
 #log-out {
   text-align: center;
-}
-
-#create-recipe-link {
 }
 
 #user-show h1 {

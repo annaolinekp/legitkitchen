@@ -26,6 +26,11 @@
                         autofocus: true,
                         input_html: { autocomplete: "country" },
                         placeholder: "Where are you from?"%>
+            <%= f.input :blurb,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "blurb" },
+                        placeholder: "Tell us something about yourself!"%>
             <%= f.input :profile_picture_url, as: :file,
                         require: true,
                         autofocus: true,
