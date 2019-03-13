@@ -8,8 +8,8 @@
 
       </div>
       <div class="image-card">
-        <div class="recipe-img">
-          <%= cl_image_tag @recipe.picture_url, width: 640, height: 420, dpr: 3.0, crop: :fill %>
+        <div>
+          <%= cl_image_tag @recipe.picture_url, width: 500, height: 420, dpr: 3.0, crop: :fill, class: "recipe-img" %>
         </div>
         <div class="footer-banner d-flex">
           <div>

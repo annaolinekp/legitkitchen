@@ -1,12 +1,10 @@
 <div class="main-container">
   <div class="make-recipe">
-    <div class="row justify-content-center">
-      <!-- <div class="food-picture"> -->
-        <div class="food-icons-left">
-          <%= image_tag "Group-5.svg" %>
-        </div>
- <!--      </div> -->
-      <div class=" recipe-form-container justify-content-center">
+
+      <div class="food-icons-left">
+        <%= image_tag "Group-5.svg" %>
+      </div>
+      <div class="recipe-form-container">
         <h1>CREATE YOUR RECIPE</h1>
         <div class="recipe-form">
           <%= render 'recipes/form', ingredients_matches_amounts: @ingredients_matches_amounts %>
@@ -15,6 +13,5 @@
       <div class="food-icons-rigth">
         <%= image_tag "Group-5.svg" %>
       </div>
-    </div>
   </div>
 </div>
