@@ -1,15 +1,39 @@
 
-.btn-filter {
-  color: white;
-  // padding: 5px 30px;
-  // border-radius: 8px;
-  // font-weight: lighter;
-  // opacity: 0.6;
-  text-decoration:none;
-  margin: 0 80px;
-   &:hover {
-    text-decoration: none;
-   }
+// .btn-filter {
+//   border: solid;
+//   border-width: 1px;
+//   border-color: white;
+//   color: white;
+//   border-radius: 40px;
+//   padding: 5px 10px 5px 10px;
+//   // padding: 5px 30px;
+//   // border-radius: 8px;
+//   // font-weight: lighter;
+//   // opacity: 0.6;
+//   text-decoration:none;
+//   margin: 0 80px;
+//    &:hover {
+//     text-decoration: none;
+//    }
+// }
+
+#filter-btn {
+  margin: 30px;
+  color: white !important;
+  width: 100px;
+  background-color: $main-color;
+  border-width: 1px !important;
+  border: solid;
+  border-color: white;
+  color: $main-color;
+  border-radius: 40px;
+  &:hover {
+    color: $main-color;
+  }
+  &:focus {
+    // border: none !important;
+    box-shadow: none !important;
+  }
 }
 
 .lg-button {

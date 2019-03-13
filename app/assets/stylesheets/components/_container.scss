@@ -38,9 +38,14 @@
 }
 
 .filters-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
   background-color: $main-color;
   opacity: 0.6;
-  padding-top: 8px;
+  // padding-top: 8px;
+  height: 55px;
   // padding-bottom: 4px;
 }
 
