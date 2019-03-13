@@ -59,11 +59,16 @@
           <div class="wrap-ingredients">
             <% @recipe.quantities.each do |quantity|%>
               <div class="ingredient-amount">
+
                 <p> <%= quantity.description %> <%= quantity.ingredient.name %> </p>
                 <div>
                   <% if @recipe.user == current_user%>
                     <%= link_to quantity_path(quantity), method: :delete, class: "link" do %>
-                    <i class="far fa-trash-alt"></i>
+
+                    <!-- <i class="far fa-trash-alt"></i> -->
+                    <div class="delete-recipe">
+                      <i class="fas fa-times"></i>
+                    </div>
                     <% end %>
                   <% end %>
                 </div>
