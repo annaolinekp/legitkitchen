@@ -1,5 +1,12 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name), class: "btn login-btn" %><br />
+  <%= link_to "Log in", new_session_path(resource_name) %><br />
+<% end %>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <div class="d-flex" style="font-size: 12px;">
+    <p>Already have an account?</p>
+    <%= link_to "Sign up", new_registration_path(resource_name), class: "link sign-up" %><br />
+  </div>
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
@@ -20,9 +27,4 @@
   <% end %>
 <% end %>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <div class="d-flex">
-    <p>Already have an account?</p>
-    <%= link_to "Sign up", new_registration_path(resource_name), class: "link sign-up" %><br />
-  </div>
-<% end %>
+
