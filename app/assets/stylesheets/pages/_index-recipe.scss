@@ -80,20 +80,6 @@
   background: linear-gradient(-32deg, #ffa783 50%, white 50%);
 } */
 
-
-.heart2 {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 18px;
-    width: 100%;
-    background: green;
-    background: linear-gradient(0deg, #ffa783 20%, #ffa783 50%);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-
 .heart-container {
   position: relative;
   height:100%;
@@ -109,6 +95,20 @@
   font-size: 20px;
 } */
 
+
+.heart2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 18px;
+    width: 100%;
+    background: green;
+    background: linear-gradient(0deg, #ffa783 20%, #ffa783 50%);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
 .heart-icon2 {
   position: absolute;
   bottom: 4px;
@@ -123,19 +123,14 @@
  */
 
 .country-strip {
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
   background-color: $main-color;
   height:20px;
   position:absolute;
   width:100%;
-  text-align: center;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-
- p {
-    font-size:12px;
-    color:white;
-    font-weight: bold;
-  }
-
 }

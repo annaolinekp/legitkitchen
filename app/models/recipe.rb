@@ -12,6 +12,7 @@ class Recipe < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
+  validates :short_description, presence: true
   validates :category, presence: true
   validates :cooktime, presence: true
   validates :preptime, presence: true
