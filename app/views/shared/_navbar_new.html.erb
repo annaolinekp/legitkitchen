@@ -36,6 +36,7 @@
 
             <div class="dropdown-menu dropdown-menu-right nav-dropdown-box" aria-labelledby="navbarDropdown">
               <%= link_to "My profile", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Upload a recipe", new_recipe_path(current_user), class: "dropdown-item" %>
               <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
