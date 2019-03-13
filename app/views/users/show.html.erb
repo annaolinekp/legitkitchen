@@ -12,11 +12,6 @@
         <div class="blurb">
           "<%= @user.blurb %>"
         </div>
-        <div id="create">
-          <%= link_to new_recipe_path do  %>
-            <button type="button" class="btn btn-light" id="user-btn"> + Create a new recipe</button>
-          <% end %>
-        </div>
       </div>
     </div>
 
@@ -90,7 +85,14 @@
       </a>
     </div>
 
-    <h2>MY RECIPES</h2>
+    <div class="header-and-create">
+      <h2>MY RECIPES</h2>
+      <div id="create">
+        <%= link_to new_recipe_path do  %>
+          <button type="button" class="btn btn-light" id="user-btn"> + </button>
+        <% end %>
+      </div>
+    </div>
     <div id="carouselExampleControlsTwo" class="carousel slide" data-ride="carousel" data-interval="false">
       <div class="carousel-inner">
         <% count = 0 %>
