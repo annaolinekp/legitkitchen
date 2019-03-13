@@ -1,14 +1,23 @@
 <div class="main-container-user">
   <div id="user-show">
-    <div class="user_show_avatar">
-      <%= cl_image_tag @user.profile_picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
-    </div>
-    <p> <%= @user.first_name.upcase %> </p>
-    <div id="create-recipe-link">
-      <p> Create a new recipe </p>
-      <%= link_to new_recipe_path do  %>
-      <i class="fas fa-utensils"></i>
-      <% end %>
+    <div class="user-info">
+      <div class="user_show_avatar">
+        <%= cl_image_tag @user.profile_picture_url, height: 300, dpr: 3.0, width: 400, crop: :fill %>
+      </div>
+      <div class="name-and-country">
+        <h3 id="user-name"> <%= @user.first_name.upcase %> </h3>
+        <p id="country-name"> <%= link_to @user.country.name.upcase, country_path(@user.country) %> </p>
+      </div>
+      <div id="create">
+        <div id="create-recipe-link">
+          <%= link_to new_recipe_path do  %>
+            <i class="fas fa-plus"></i>
+          <% end %>
+        <div>
+          <p> Create a new recipe </p>
+        </div>
+        </div>
+      </div>
     </div>
 
     <h2>FAVOURITE RECIPES</h2>
@@ -127,9 +136,6 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
-    </div>
-    <div id="log-out">
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
     </div>
   </div>
 </div>
