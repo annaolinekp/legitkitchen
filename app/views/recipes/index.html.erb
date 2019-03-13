@@ -29,7 +29,7 @@
           <div class="info-card">
             <h2><%= link_to recipe.name, recipe_path(recipe) %></h2>
             <div>
-             <p><%= recipe.description.truncate(100)%></p>
+             <p><%= recipe.short_description%></p>
             </div>
           </div>
           <div class="heart2">
