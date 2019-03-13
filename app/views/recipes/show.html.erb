@@ -1,12 +1,10 @@
 <div class="main-recipe-container">
- <div class="recipe-title">
-
-  <h1> <%= @recipe.name %> </h1>
+ <div class="recipe-title">  <h1> <%= @recipe.name %> </h1>
  </div>
   <div class="d-flex">
     <div class="container-left">
-      <div>
-        <p class="r-info"><span>PREPTIME : <%= @recipe.preptime %> min </span> COOKTIME : <%= @recipe.cooktime %> min </p>
+      <div class="r-info">
+       <p> PREPTIME : <%= @recipe.preptime %> min <span> COOKTIME : <%= @recipe.cooktime %> min </span> <%= @recipe.dietary_requirements %> </p>
       </div>
       <div class="image-card">
         <div class="recipe-img">
@@ -29,21 +27,17 @@
           </div>
           <a href="" id="comment-btn" class="c-btn"> <i class="fas fa-comment-alt"></i> </a>
           <i class="fas fa-share-alt"></i>
-          <!-- <div>
-            <p class="r-info"><span>PREPTIME : <%= @recipe.preptime %> min </span> COOKTIME : <%= @recipe.cooktime %> min </p>
-          </div> -->
-
         </div>
       </div>
 
       <div>
         <div class="comment-container">
-            <p id="counter"> <%= pluralize @recipe.comments.size, "comment" %> </p>
-          <div id="all-comments">
-            <p>Show all comments</p>
-          </div>
           <div class="form-container d-none">
             <%= render 'comments/form', recipe: @recipe, comment: @comment %>
+          </div>
+          <p id="counter"> <%= pluralize @recipe.comments.size, "comment" %> </p>
+          <div id="all-comments">
+            <p>Show all comments</p>
           </div>
           <div id="comments" class="d-none comments-list">
             <% @recipe.comments.each do |comment| %>
@@ -76,14 +70,6 @@
               </div>
             <% end %>
           </div>
-
-          <!-- <div class="r-info">
-            <p> PREPTIME : <%= @recipe.preptime %> min </p>
-            <p> COOKTIME : <%= @recipe.cooktime %> min </p>
-            <p> SERVINGS : </p> -->
-          <!--   <p> <%= @recipe.category %> </p>
-              <p> <%= @recipe.dietary_requirements%> </p> -->
-        <!--   </div> -->
         </div>
 
       </div>

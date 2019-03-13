@@ -3,7 +3,13 @@
     const btn = document.getElementById('comment-btn');
     btn.addEventListener('click', (event) => {
       event.preventDefault();
-      form.classList.toggle('d-none');
+      form.classList.remove('d-none');
+      const submit = document.getElementById('comment-form')
+      submit.addEventListener('submit', (event) => {
+      form.classList.add('d-none');
+      comments.classList.remove('d-none');
+
+      })
     })
   }
 
@@ -15,5 +21,6 @@
       comments.classList.toggle('d-none');
     })
   }
+
 createComment();
 displayComments();

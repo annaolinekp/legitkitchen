@@ -1,4 +1,4 @@
-.recipe-info-container, .ingredient-main-container, .ingredient-column, .ingredient-amount {
+.recipe-info-container, .ingredient-main-container, .ingredient-column, .ingredient-amount, .r-info {
   display: flex;
 }
 .main-recipe-container{
@@ -53,6 +53,7 @@
 .method {
   height: 100vh;
   overflow: scroll;
+  font-family: 300px;
 }
 
 .user-comment {
@@ -66,12 +67,9 @@
 .r-info {
   font-weight: lighter;
   span {
-    padding-right: 20px;
+    margin: 0 20px;
   }
-   p {
-    margin: 0;
-    line-height: 2rem;
-   }
+
 }
 .comments-list {
   height: 300px;
