@@ -6,9 +6,12 @@
       form.classList.remove('d-none');
       const submit = document.getElementById('comment-form')
       submit.addEventListener('submit', (event) => {
-      form.classList.add('d-none');
-      comments.classList.remove('d-none');
-
+        const inputComment = document.getElementById('comment_content')
+        if ( inputComment.value === "" ) {
+        } else {
+        form.classList.add('d-none');
+        comments.classList.remove('d-none');
+        }
       })
     })
   }
