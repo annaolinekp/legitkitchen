@@ -67,9 +67,10 @@
   font-size: 16px;
   font-weight: bold;
   background-color: white;
+  height: 30px;
   width: 30px;
   border-color: $main-color;
-  padding: 2px 3px 2px 3px;
+  padding: 2px 3px 3px 3px;
   color: $main-color;
   border-radius: 40px;
   &:hover {

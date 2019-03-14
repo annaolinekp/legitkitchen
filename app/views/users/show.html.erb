@@ -29,7 +29,7 @@
                     <%= @saved_recipes[count].recipe.user.country.name.upcase %>
                   </div>
                   <%= cl_image_tag @saved_recipes[count].recipe.picture_url %>
-                  <%= link_to @saved_recipes[count].recipe.name, recipe_path(@saved_recipes[count].recipe) %>
+                  <%= link_to @saved_recipes[count].recipe.name.truncate(25), recipe_path(@saved_recipes[count].recipe) %>
                 </div>
               <% end %>
               <% if count + 1 < @saved_recipes.count %>
@@ -38,7 +38,7 @@
                     <%= @saved_recipes[count + 1].recipe.user.country.name.upcase %>
                   </div>
                   <%= cl_image_tag @saved_recipes[count + 1].recipe.picture_url %>
-                  <%= link_to @saved_recipes[count + 1].recipe.name, recipe_path(@saved_recipes[count + 1].recipe) %>
+                  <%= link_to @saved_recipes[count + 1].recipe.name.truncate(25), recipe_path(@saved_recipes[count + 1].recipe) %>
                 </div>
               <% end %>
               <% if count + 2 < @saved_recipes.count %>
@@ -47,7 +47,7 @@
                     <%= @saved_recipes[count + 2].recipe.user.country.name.upcase %>
                   </div>
                   <%= cl_image_tag @saved_recipes[count + 2].recipe.picture_url %>
-                  <%= link_to @saved_recipes[count + 2].recipe.name, recipe_path(@saved_recipes[count + 2].recipe) %>
+                  <%= link_to @saved_recipes[count + 2].recipe.name.truncate(25), recipe_path(@saved_recipes[count + 2].recipe) %>
                 </div>
               <% end %>
               <% if count + 3 < @saved_recipes.count %>
@@ -56,7 +56,7 @@
                     <%= @saved_recipes[count + 3].recipe.user.country.name.upcase %>
                   </div>
                   <%= cl_image_tag @saved_recipes[count + 3].recipe.picture_url %>
-                  <%= link_to @saved_recipes[count + 3].recipe.name, recipe_path(@saved_recipes[count + 3].recipe) %>
+                  <%= link_to @saved_recipes[count + 3].recipe.name.truncate(25), recipe_path(@saved_recipes[count + 3].recipe) %>
                 </div>
               <% end %>
               <% if count + 4 < @saved_recipes.count %>
@@ -65,7 +65,7 @@
                     <%= @saved_recipes[count + 4].recipe.user.country.name.upcase %>
                   </div>
                   <%= cl_image_tag @saved_recipes[count + 4].recipe.picture_url %>
-                  <%= link_to @saved_recipes[count + 4].recipe.name, recipe_path(@saved_recipes[count + 4].recipe) %>
+                  <%= link_to @saved_recipes[count + 4].recipe.name.truncate(25), recipe_path(@saved_recipes[count + 4].recipe) %>
                 </div>
               <% end %>
             </div>
@@ -103,7 +103,7 @@
               <% if count < @recipes.count %>
                 <div class="recipe-card-user">
                   <%= cl_image_tag @recipes[count].picture_url %>
-                    <%= link_to @recipes[count].name, recipe_path(@recipes[count]) %>
+                    <%= link_to @recipes[count].name.truncate(25), recipe_path(@recipes[count]) %>
                   <div class="delete">
                     <%= link_to recipe_path(@recipes[count]), method: :delete, data: { confirm: "Are you sure?" } do %>
                     <div id="delete-svg">
@@ -116,7 +116,7 @@
               <% if count + 1 < @recipes.count %>
                 <div class="recipe-card-user">
                   <%= cl_image_tag @recipes[count + 1].picture_url %>
-                    <%= link_to @recipes[count + 1].name, recipe_path(@recipes[count + 1]) %>
+                    <%= link_to @recipes[count + 1].name.truncate(25), recipe_path(@recipes[count + 1]) %>
                   <div class="delete">
                     <%= link_to recipe_path(@recipes[count + 1]), method: :delete, data: { confirm: "Are you sure?" } do %>
                     <div id="delete-svg">
@@ -129,7 +129,7 @@
               <% if count + 2 < @recipes.count %>
                 <div class="recipe-card-user">
                   <%= cl_image_tag @recipes[count + 2].picture_url %>
-                    <%= link_to @recipes[count + 2].name, recipe_path(@recipes[count + 2]) %>
+                    <%= link_to @recipes[count + 2].name.truncate(25), recipe_path(@recipes[count + 2]) %>
                   <div class="delete">
                     <%= link_to recipe_path(@recipes[count + 2]), method: :delete, data: { confirm: "Are you sure?" } do %>
                     <div id="delete-svg">
@@ -142,7 +142,7 @@
               <% if count + 3 < @recipes.count %>
                 <div class="recipe-card-user">
                   <%= cl_image_tag @recipes[count + 3].picture_url %>
-                    <%= link_to @recipes[count + 3].name, recipe_path(@recipes[count + 3]) %>
+                    <%= link_to @recipes[count + 3].name.truncate(25), recipe_path(@recipes[count + 3]) %>
                   <div class="delete">
                     <%= link_to recipe_path(@recipes[count + 3]), method: :delete, data: { confirm: "Are you sure?" } do %>
                     <div id="delete-svg">
@@ -155,7 +155,7 @@
               <% if count + 4 < @recipes.count %>
                 <div class="recipe-card-user">
                   <%= cl_image_tag @recipes[count + 4].picture_url %>
-                    <%= link_to @recipes[count + 4].name, recipe_path(@recipes[count + 4]) %>
+                    <%= link_to @recipes[count + 4].name.truncate(25), recipe_path(@recipes[count + 4]) %>
                   <div class="delete">
                     <%= link_to recipe_path(@recipes[count + 4]), method: :delete, data: { confirm: "Are you sure?" } do %>
                     <div id="delete-svg">
