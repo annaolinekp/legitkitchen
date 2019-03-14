@@ -12,6 +12,8 @@ User.destroy_all
 Country.destroy_all
 Ingredient.destroy_all
 
+ingredients = ["Milk", "Flour", "Eggs", "Sugar", "Salt", "Water", "Vegetable oil", "Cinnamon", "Paprika", "Jasmin rice", "Butter", "Pepper", "Fresh yeast"]
+
 dietary_requirements = ["Appetiser", "Main", "Drinks", "Dessert"]
 categories = ["Vegetarian", "Vegan", "Lactose Intolerant","Gluten Free", "Halal"]
 country_name = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua & Deps", "Argentina", "Armenia", "Australia",
@@ -56,9 +58,10 @@ puts 'Creating 10 fake users...'
 end
 
 puts 'Creating 30 fake ingredients...'
-    30.times do
+
+    13.times do
   ingredient = Ingredient.new(
-    name: Faker::Food.ingredient
+    name: ingredients.delete(ingredients.sample)
   )
   ingredient.save!
 end
