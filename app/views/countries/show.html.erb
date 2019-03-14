@@ -1,9 +1,9 @@
 
   <div class="filters-container-country-show">
     <div class="sub-container" id="title-country-show">
-      <h1 style="color:white"><%= @country.name.upcase %> </h1>
+      <h1 style="color:white; padding-top: 5px;"><%= @country.name.upcase %> </h1>
     </div>
-      <div id=filter-country-show>
+      <div id=filter-country-show style="display: flex;">
         <% if @search != "" %>
         <%= link_to recipes_path(search: @search, category: 'Appetiser', country: @country.name) do %>
           <button type="button" class="btn btn-light" id="filter-btn"> Appetiser </button>
