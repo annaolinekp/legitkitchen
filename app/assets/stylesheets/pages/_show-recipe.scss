@@ -46,6 +46,7 @@
   overflow-y: scroll;
   overflow-x: hidden;
   background: rgba(255, 167, 131, 0.4);
+  border-radius: 4px;
   font-weight: lighter;
 }
 
@@ -72,9 +73,10 @@
 
 .r-info {
   font-weight: lighter;
-  span {
-    margin: 0 20px;
-  }
+  display: flex;
+  justify-content: space-between;
+  // padding-bottom: 10px;
+  padding: 9px;
 
 }
 .comments-list {
