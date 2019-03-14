@@ -4,8 +4,10 @@
   <div class="d-flex">
     <div class="container-left">
       <div class="r-info">
-       <p> <span style="font-weight: bold;"><%= @recipe.user.country.name %></span> PREPTIME : <%= @recipe.preptime %> min <span> COOKTIME : <%= @recipe.cooktime %> min </span> <%= @recipe.dietary_requirements %> </p>
-
+         <div style="font-weight: 400;"> <%= @recipe.user.country.name.upcase %> </div>
+         <div> PREPTIME : <%= @recipe.preptime %> min </div>
+         <div> COOKTIME : <%= @recipe.cooktime %> min </div>
+         <div> <%= @recipe.dietary_requirements %> </div>
       </div>
       <div class="image-card">
         <div>
