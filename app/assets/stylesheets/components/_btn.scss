@@ -81,3 +81,15 @@
     box-shadow: none !important;
   }
 }
+
+.add-comment-btn {
+    background-color: $main-color;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    &:hover {
+      color: white;
+    }
+}
