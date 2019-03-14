@@ -4,14 +4,14 @@
   <div class="d-flex">
     <div class="container-left">
       <div class="r-info">
-         <div style="font-weight: 400;"> <%= @recipe.user.country.name.upcase %> </div>
-         <div> PREPTIME : <%= @recipe.preptime %> min </div>
-         <div> COOKTIME : <%= @recipe.cooktime %> min </div>
-         <div> <%= @recipe.dietary_requirements %> </div>
+        <div style="font-weight: 400;"> <%= @recipe.user.country.name.upcase %> </div>
+        <div> Preptime : <%= @recipe.preptime %> min </div>
+        <div> Cooktime : <%= @recipe.cooktime %> min </div>
+        <div> <%= @recipe.dietary_requirements %> </div>
       </div>
       <div class="image-card">
         <div>
-          <%= cl_image_tag @recipe.picture_url, width: 500, height: 420, dpr: 3.0, crop: :fill, class: "recipe-img" %>
+          <%= cl_image_tag @recipe.picture_url, width: 400, height: 300, dpr: 3.0, crop: :fill, class: "recipe-img" %>
         </div>
         <div class="footer-banner d-flex">
           <div>
@@ -84,7 +84,7 @@
       <div class="method-container">
         <h3>Method</h3>
         <div class="method">
-          <p><%= @recipe.description %></p>
+          <p style="white-space: pre-line;"><%= @recipe.description %></p>
         </div>
       </div>
     </div>

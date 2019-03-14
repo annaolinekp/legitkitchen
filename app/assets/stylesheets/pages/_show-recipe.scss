@@ -19,7 +19,6 @@
     padding: 3px 4px 2px 4px;
     border: 1px solid white;
     border-radius: 50%;
-
   }
 }
 .container-left, .recipe-info-container {
@@ -75,8 +74,8 @@
   font-weight: lighter;
   display: flex;
   justify-content: space-between;
-  // padding-bottom: 10px;
-  padding: 9px;
+  font-size: 14px;
+  margin: 12px 0;
 
 }
 .comments-list {
@@ -85,5 +84,8 @@
 }
 
 .form-container {
-  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.comment-container {
+  width: 300px;
 }
