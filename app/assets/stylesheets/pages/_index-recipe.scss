@@ -85,9 +85,11 @@
 } */
 
 .heart-container {
-  position: relative;
   height:100%;
   text-align:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 /*
@@ -114,8 +116,7 @@
 
 
 .heart-icon2 {
-  position: absolute;
-  bottom: 4px;
+  margin-bottom: 7px;
   color: white;
   font-size: 12px;
 }
