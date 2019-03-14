@@ -1,8 +1,10 @@
-<div class="main-container">
-  <div class="filters-container">
-    <div class="filters" id="country-show">
-      <!-- <p>Filter by:</p> -->
-      <% if @search != "" %>
+
+  <div class="filters-container-country-show">
+    <div class="sub-container" id="title-country-show">
+      <h1 style="color:white"><%= @country.name.upcase %> </h1>
+    </div>
+      <div id=filter-country-show>
+        <% if @search != "" %>
         <%= link_to recipes_path(search: @search, category: 'Appetiser', country: @country.name) do %>
           <button type="button" class="btn btn-light" id="filter-btn"> Appetiser </button>
         <% end %>
@@ -29,12 +31,8 @@
           <button type="button" class="btn btn-light" id="filter-btn"> Drink </button>
         <% end %>
       <% end %>
+      </div>
     </div>
-  </div>
-
-  <div class="sub-container" id="title-country-show">
-    <h1><%= @country.name.upcase %> </h1>
-  </div>
 
   <div class="main-container-index">
     <div class="container-flex">
