@@ -2,16 +2,16 @@
     <div class="filters">
       <!-- <p>Filter by:</p> -->
       <% if @search != "" %>
-        <% link_to recipes_path(search: @search, category: 'Appetiser') do %>
+        <%= link_to recipes_path(search: @search, category: 'Appetiser') do %>
           <button type="button" class="btn btn-light" id="filter-btn"> Appetiser </button>
         <% end %>
-        <% link_to recipes_path(search: @search, category: 'Main') do %>
+        <%= link_to recipes_path(search: @search, category: 'Main') do %>
           <button type="button" class="btn btn-light" id="filter-btn"> Main </button>
         <% end %>
-        <% link_to recipes_path(search: @search, category: 'Dessert') do %>
+        <%= link_to recipes_path(search: @search, category: 'Dessert') do %>
           <button type="button" class="btn btn-light" id="filter-btn"> Dessert </button>
         <% end %>
-        <% link_to recipes_path(search: @search, category: 'Drink') do %>
+        <%= link_to recipes_path(search: @search, category: 'Drink') do %>
           <button type="button" class="btn btn-light" id="filter-btn"> Drink </button>
         <% end %>
       <% else %>
