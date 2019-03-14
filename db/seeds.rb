@@ -12,7 +12,8 @@ User.destroy_all
 Country.destroy_all
 Ingredient.destroy_all
 
-ingredients = ["Milk", "Flour", "Eggs", "Sugar", "Salt", "Water", "Vegetable oil", "Cinnamon", "Paprika", "Jasmin rice", "Butter", "Pepper", "Fresh yeast"]
+ingredients = ["Milk", "Flour", "Eggs", "Sugar", "Salt", "Water", "Vegetable oil", "Cinnamon", "Paprika", "Jasmin rice", "Butter", "Pepper",
+"Flying fish", "Lime juice", "Garlic", "Celery", "Corn meal", "Okra", "Lentils", "Onion", "Tumeric", "Cumin", "Ginger"]
 
 dietary_requirements = ["Appetiser", "Main", "Drinks", "Dessert"]
 categories = ["Vegetarian", "Vegan", "Lactose Intolerant","Gluten Free", "Halal"]
@@ -57,9 +58,9 @@ puts 'Creating 10 fake users...'
   user.save!
 end
 
-puts 'Creating 30 fake ingredients...'
+puts 'Creating ingredients...'
 
-    13.times do
+    23.times do
   ingredient = Ingredient.new(
     name: ingredients.delete(ingredients.sample)
   )
