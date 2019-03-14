@@ -4,7 +4,7 @@
   <div class="d-flex">
     <div class="container-left">
       <div class="r-info">
-       <p> PREPTIME : <%= @recipe.preptime %> min <span> COOKTIME : <%= @recipe.cooktime %> min </span> <%= @recipe.dietary_requirements %> </p>
+       <p> <span style="font-weight: bold;"><%= @recipe.user.country.name %></span> PREPTIME : <%= @recipe.preptime %> min <span> COOKTIME : <%= @recipe.cooktime %> min </span> <%= @recipe.dietary_requirements %> </p>
 
       </div>
       <div class="image-card">
