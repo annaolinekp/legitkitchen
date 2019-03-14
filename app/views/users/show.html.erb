@@ -19,13 +19,14 @@
     <div id="carouselExampleControlsOne" class="carousel slide" data-ride="carousel" data-interval="false">
       <div class="carousel-inner">
         <% count = 0 %>
+
         <% @saved_recipes.each do |saved_recipe| %>
           <div class="carousel-item <%= count == 0 ? 'active' : '' %>">
             <div id="my-recipes">
               <% if count < @saved_recipes.count %>
                 <div class="recipe-card-favourite">
                   <div class="country-strip">
-                    <%= saved_recipe.recipe.user.country.name.upcase %>
+                    <%= @saved_recipes[count].recipe.user.country.name.upcase %>
                   </div>
                   <%= cl_image_tag @saved_recipes[count].recipe.picture_url %>
                   <%= link_to @saved_recipes[count].recipe.name, recipe_path(@saved_recipes[count].recipe) %>
@@ -34,7 +35,7 @@
               <% if count + 1 < @saved_recipes.count %>
                 <div class="recipe-card-favourite">
                   <div class="country-strip">
-                    <%= saved_recipe.recipe.user.country.name.upcase %>
+                    <%= @saved_recipes[count + 1].recipe.user.country.name.upcase %>
                   </div>
                   <%= cl_image_tag @saved_recipes[count + 1].recipe.picture_url %>
                   <%= link_to @saved_recipes[count + 1].recipe.name, recipe_path(@saved_recipes[count + 1].recipe) %>
@@ -43,7 +44,7 @@
               <% if count + 2 < @saved_recipes.count %>
                 <div class="recipe-card-favourite">
                   <div class="country-strip">
-                    <%= saved_recipe.recipe.user.country.name.upcase %>
+                    <%= @saved_recipes[count + 2].recipe.user.country.name.upcase %>
                   </div>
                   <%= cl_image_tag @saved_recipes[count + 2].recipe.picture_url %>
                   <%= link_to @saved_recipes[count + 2].recipe.name, recipe_path(@saved_recipes[count + 2].recipe) %>
@@ -52,7 +53,7 @@
               <% if count + 3 < @saved_recipes.count %>
                 <div class="recipe-card-favourite">
                   <div class="country-strip">
-                    <%= saved_recipe.recipe.user.country.name.upcase %>
+                    <%= @saved_recipes[count + 3].recipe.user.country.name.upcase %>
                   </div>
                   <%= cl_image_tag @saved_recipes[count + 3].recipe.picture_url %>
                   <%= link_to @saved_recipes[count + 3].recipe.name, recipe_path(@saved_recipes[count + 3].recipe) %>
@@ -61,7 +62,7 @@
               <% if count + 4 < @saved_recipes.count %>
                 <div class="recipe-card-favourite">
                   <div class="country-strip">
-                    <%= saved_recipe.recipe.user.country.name.upcase %>
+                    <%= @saved_recipes[count + 4].recipe.user.country.name.upcase %>
                   </div>
                   <%= cl_image_tag @saved_recipes[count + 4].recipe.picture_url %>
                   <%= link_to @saved_recipes[count + 4].recipe.name, recipe_path(@saved_recipes[count + 4].recipe) %>
